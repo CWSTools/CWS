@@ -1,0 +1,46 @@
+<UserControl
+  x:Class="Gallery.Views.AboutView"
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:fi="clr-namespace:AvaloniaFluentUI.Icons;assembly=AvaloniaFluentUI"
+  xmlns:fui="clr-namespace:AvaloniaFluentUI.Controls;assembly=AvaloniaFluentUI"
+  xmlns:vm="using:Gallery.ViewModels"
+  x:DataType="vm:AboutViewModel">
+
+  <fui:SmoothScrollViewer Padding="32,28,32,32">
+    <StackPanel Spacing="18">
+      <TextBlock
+        FontSize="32"
+        FontWeight="SemiBold"
+        Text="{Binding Title}"/>
+
+      <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+        <fui:SettingCard
+          Header="{Binding AuthorLabel}"
+          Description="{Binding Author}"
+          IconSource="{x:Static fi:FluentIcon.Info}"/>
+
+        <fui:SettingCard
+          Grid.Column="1"
+          Header="{Binding VersionLabel}"
+          Description="{Binding Version}"
+          IconSource="{x:Static fi:FluentIcon.Info}"/>
+      </Grid>
+
+      <fui:SettingCard
+        Header="{Binding UpdateTitle}"
+        Description="{Binding UpdateDescription}"
+        IconSource="{x:Static fi:FluentIcon.Download}">
+        <StackPanel Orientation="Horizontal" Spacing="12">
+          <Button
+            Command="{Binding CheckUpdateCommand}"
+            Content="{Binding CheckUpdateButton}"/>
+          <TextBlock
+            VerticalAlignment="Center"
+            Opacity="0.72"
+            Text="{Binding UpdateStatus}"/>
+        </StackPanel>
+      </fui:SettingCard>
+    </StackPanel>
+  </fui:SmoothScrollViewer>
+</UserControl>

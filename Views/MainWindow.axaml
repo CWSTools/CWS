@@ -1,0 +1,323 @@
+<view:FluentWindow
+  x:Class="Gallery.Views.MainWindow"
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:ani="clr-namespace:AvaloniaFluentUI.Media.Animation;assembly=AvaloniaFluentUI"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:fi="clr-namespace:AvaloniaFluentUI.Icons;assembly=AvaloniaFluentUI"
+  xmlns:fui="clr-namespace:AvaloniaFluentUI.Controls;assembly=AvaloniaFluentUI"
+  xmlns:locale="clr-namespace:AvaloniaFluentUI.Locale;assembly=AvaloniaFluentUI"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:ui="clr-namespace:Gallery.Controls"
+  xmlns:view="clr-namespace:AvaloniaFluentUI.Windowing;assembly=AvaloniaFluentUI"
+  xmlns:vm="using:Gallery.ViewModels"
+  Title="{Binding Title}"
+  Width="1200"
+  Height="800"
+  MinWidth="750"
+  MinHeight="500"
+  d:DesignHeight="1080"
+  d:DesignWidth="1920"
+  x:DataType="vm:MainWindowViewModel"
+  Icon="/Assets/app.ico"
+  IconSize="20"
+  TitleBarMargin="40 0 0 0"
+  WindowStartupLocation="CenterScreen"
+  mc:Ignorable="d">
+  <!--  BorderBrush="{Binding BorderBrush}"  -->
+  <!--  BorderThickness="{Binding BorderWidth}"  -->
+
+  <Design.DataContext>
+    <!--
+      This only sets the DataContext for the previewer in an IDE,
+      to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+    -->
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+
+  <Window.Styles>
+    <!-- <Style Selector="Button.NavigationItem"> -->
+    <!--     <Setter Property="Height" Value="35"/> -->
+    <!--     <Setter Property="VerticalContentAlignment" Value="Center"/> -->
+    <!--     <Setter Property="HorizontalAlignment" Value="Stretch"/> -->
+    <!--     <Setter Property="CornerRadius" Value="5"/> -->
+    <!--     <Setter Property="Background" Value="Transparent"/> -->
+    <!--     ~1~ <Setter Property="BorderBrush" Value="DeepPink"/> @1@ -->
+    <!-- </Style> -->
+
+    <!--  Hover  -->
+    <!-- <Style Selector="Button.NavigationItem:pointerover /template/ContentPresenter"> -->
+    <!--     <Setter Property="Background" Value="#e7eaef"/> -->
+    <!-- </Style> -->
+    <!--    -->
+    <!-- <Style Selector="Button.NavigationItem:pressed /template/ContentPresenter"> -->
+    <!--     <Setter Property="Opacity" Value="0.85"/> -->
+    <!-- </Style> -->
+
+    <!-- <Style Selector="Button.NavigationItem[IsSelected=true] /template/ContentPresenter"> -->
+    <!-- <Setter Property="Background" Value="#eaeaea" /> -->
+    <!-- </Style> -->
+
+    <!-- <Style Selector="TransitioningContentControl"> -->
+    <!-- <Setter Property="CornerRadius" Value="12 0 0 0" /> -->
+    <!-- <Setter Property="Background" Value="#50F7F9FC" /> -->
+    <!-- <Setter Property="BorderThickness" Value="1" /> -->
+    <!-- <Setter Property="BorderBrush" Value="#E2E5E9" /> -->
+    <!-- <Setter Property="ClipToBounds" Value="True" /> -->
+    <!-- </Style> -->
+    <Style Selector="UserControl">
+      <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style Selector="Window">
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Property="Background" Duration="0:0:0.15"/>
+        </Transitions>
+      </Setter>
+    </Style>
+
+    <Style Selector="fui|NavigationViewItem.Icon /template/ Viewbox#IconBox ContentPresenter#Icon fui|FluentPathIcon">
+      <Setter Property="Margin" Value="3"/>
+    </Style>
+
+    <Style Selector="view|AppSplashScreen">
+      <Setter Property="Background" Value="#FFFFFF"/>
+    </Style>
+  </Window.Styles>
+
+
+  <!-- <Window.Background> -->
+  <!-- <ImageBrush Source="avares://Gallery/Assets/Images/5.jpg" Stretch="UniformToFill"></ImageBrush> -->
+  <!-- </Window.Background> -->
+
+  <view:FluentWindow.TitleBarContent>
+    <Grid ColumnDefinitions="*, Auto, Auto, Auto">
+      <fui:SearchTextBox
+        Width="256"
+        Margin="0,10,0,0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        PlaceholderText="{Binding SearchWatermark}"/>
+
+      <fui:ToolButton
+        Grid.Column="1"
+        Width="46"
+        Height="45"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Top"
+        Classes="Transparent"
+        Content="{x:Static fi:FluentIcon.Setting}">
+        <fui:ToolButton.Flyout>
+          <fui:FluentFlyout Placement="Bottom">
+            <Grid
+              MaxWidth="288"
+              MaxHeight="328"
+              Margin="15"
+              ColumnDefinitions="Auto, *"
+              ColumnSpacing="6"
+              RowDefinitions="Auto, Auto"
+              RowSpacing="8">
+              <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_BorderWidth]}"/>
+              <ComboBox
+                Grid.Row="0"
+                Grid.Column="1"
+                MinWidth="100"
+                HorizontalAlignment="Stretch"
+                ItemsSource="{Binding BorderWidthItems}"
+                SelectedItem="{Binding SelectedBorderWidthItem}"/>
+
+              <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_BorderColor]}"/>
+              <ColorPicker
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                Color="{Binding SelectedBorderColor}"/>
+            </Grid>
+          </fui:FluentFlyout>
+        </fui:ToolButton.Flyout>
+      </fui:ToolButton>
+
+      <fui:ToolButton
+        Name="PinButton"
+        Grid.Column="2"
+        Width="46"
+        Height="45"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Top"
+        Classes="Transparent"
+        Click="OnToggleTopmost"
+        Content="{x:Static fi:FluentIcon.Pin}"
+        Tag="noTopmost"/>
+      <fui:ToolButton
+        Grid.Column="3"
+        Width="46"
+        Height="45"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Top"
+        Classes="Transparent"
+        Command="{Binding ToggleThemeCommand}"
+        Content="M15 3v-2q0-0.406 0.297-0.703t0.703-0.297 0.703 0.297 0.297 0.703v2q0 0.406-0.297 0.703t-0.703 0.297-0.703-0.297-0.297-0.703zM8 7q0 0.406-0.297 0.703t-0.703 0.297-0.703-0.297l-2-2q-0.297-0.297-0.297-0.703t0.297-0.703 0.703-0.297 0.703 0.297l2 2q0.297 0.297 0.297 0.703zM27 4q0.406 0 0.703 0.297t0.297 0.703-0.297 0.703l-2 2q-0.297 0.297-0.703 0.297t-0.703-0.297-0.297-0.703 0.297-0.703l2-2q0.297-0.297 0.703-0.297zM24 16v0.156q0 1.625-0.648 3.055t-1.75 2.492-2.547 1.68-3.055 0.617q-1.656 0-3.117-0.625t-2.547-1.711-1.711-2.547-0.625-3.117 0.625-3.117 1.711-2.547 2.547-1.711 3.117-0.625 3.117 0.625 2.547 1.711 1.711 2.547 0.625 3.117zM16 22h0.125q1.219 0 2.289-0.484t1.867-1.313 1.258-1.914 0.461-2.289-0.461-2.289-1.258-1.914-1.867-1.313-2.289-0.484h-0.125v12zM3 15q0.406 0 0.703 0.297t0.297 0.703-0.297 0.703-0.703 0.297h-2q-0.406 0-0.703-0.297t-0.297-0.703 0.297-0.703 0.703-0.297h2zM31 15q0.406 0 0.703 0.297t0.297 0.703-0.297 0.703-0.703 0.297h-2q-0.406 0-0.703-0.297t-0.297-0.703 0.297-0.703 0.703-0.297h2zM7 24q0.406 0 0.703 0.297t0.297 0.703-0.297 0.703l-2 2q-0.297 0.297-0.703 0.297t-0.703-0.297-0.297-0.703 0.297-0.703l2-2q0.297-0.297 0.703-0.297zM28 27q0 0.406-0.297 0.703t-0.703 0.297-0.703-0.297l-2-2q-0.297-0.297-0.297-0.703t0.297-0.703 0.703-0.297 0.703 0.297l2 2q0.297 0.297 0.297 0.703zM17 29v2q0 0.406-0.297 0.703t-0.703 0.297-0.703-0.297-0.297-0.703v-2q0-0.406 0.297-0.703t0.703-0.297 0.703 0.297 0.297 0.703z"
+        ToolTip.Tip="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[ToggleTheme]}"/>
+    </Grid>
+  </view:FluentWindow.TitleBarContent>
+
+  <Grid Margin="0,0,0,0">
+
+    <!--  IsHitTestVisible 鼠标击中  -->
+    <Image
+      x:Name="BackgroundImage"
+      Grid.RowSpan="2"
+      Grid.ColumnSpan="2"
+      IsHitTestVisible="False"
+      IsVisible="False"
+      Opacity="0.3"
+      Stretch="UniformToFill"/>
+
+    <!--  Grid.Row="0"  -->
+    <!--  Grid.ColumnSpan="2"  -->
+    <!--  Margin="10,10,10,0"  -->
+    <!--  ColumnDefinitions="Auto, Auto"  -->
+    <!--  ColumnSpacing="5">  -->
+
+    <!--  <ui:ToolButton  -->
+    <!--  Classes="ReturnButton"  -->
+    <!--  x:Name="ReturnButton"  -->
+    <!--  Grid.Column="0"  -->
+    <!--  Width="30"  -->
+    <!--  Height="30"  -->
+    <!--  CornerRadius="4"  -->
+    <!--  Command="{Binding GoBackCommand}" />  -->
+    <!--  <Image Grid.Column="0" Width="30" Height="30"  -->
+    <!-- Source="avares://Demo/Assets/Icons/LeftArrow_black.png"></Image> -->
+
+    <!-- <Image Grid.Column="1" Source="/Assets/avalonia-logo.ico" /> -->
+    <!-- <Label Grid.Column="2" Content="Avalonia" /> -->
+
+    <!-- <Image Grid.Column="0" Source="/Assets/app.ico"/> -->
+    <!--  <Label  -->
+    <!--  Grid.Column="1"  -->
+    <!--  VerticalAlignment="Top"  -->
+    <!--  Content="{Binding $parent[Window].Title}"/>  -->
+    <!-- </Grid> -->
+
+    <fui:NavigationView
+      Name="NavigationView"
+      Grid.Column="0"
+      AlwaysShowHeader="False"
+      BackCommand="{Binding GoBackCommand}"
+      Background="Transparent"
+      IsBackButtonVisible="True"
+      IsBackEnabled="True"
+      IsSettingsVisible="True"
+      PaneDisplayMode="Auto"
+      PaneFooterSeparatorIsVisible="True"
+      SelectedItem="{Binding NavigationViewSelectedItem, Mode=TwoWay}">
+
+      <fui:NavigationView.AutoCompleteBox>
+        <fui:SearchTextBox PlaceholderText="{Binding SearchWatermark}"/>
+      </fui:NavigationView.AutoCompleteBox>
+
+      <fui:NavigationView.PaneFooter>
+        <Border
+          Margin="12,0,12,12"
+          Padding="12"
+          Background="{DynamicResource ControlFillColorDefaultBrush}"
+          BorderBrush="{DynamicResource ControlStrokeColorDefault}"
+          BorderThickness="1"
+          CornerRadius="10">
+          <StackPanel Spacing="4">
+            <TextBlock FontSize="13" FontWeight="SemiBold" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_PaneFooterTitle]}"/>
+            <TextBlock
+              FontSize="12"
+              Opacity="0.68"
+              Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_PaneFooterSubtitle]}"
+              TextWrapping="Wrap"/>
+          </StackPanel>
+        </Border>
+      </fui:NavigationView.PaneFooter>
+
+      <fui:NavigationView.MenuItems>
+        <fui:NavigationViewItem
+          IsSelected="True"
+          Tag="Home"
+          IconSource="M5.322 32q-0.884 0-1.66-0.334t-1.36-0.918-0.918-1.36-0.334-1.66v-12.997q0-0.634 0.25-1.235t0.684-1.034l11.378-11.362q0.534-0.534 1.21-0.818t1.426-0.284 1.427 0.284 1.21 0.818l11.378 11.362q0.434 0.434 0.684 1.034t0.25 1.235v12.997q0 0.884-0.334 1.66t-0.918 1.36-1.36 0.918-1.66 0.334h-6.407q-0.45 0-0.843-0.167t-0.676-0.45-0.45-0.676-0.167-0.843v-8.542h-4.271v8.542q0 0.45-0.167 0.834t-0.459 0.676-0.676 0.459-0.834 0.167h-6.407zM11.729 29.864v-8.542q0-0.45 0.167-0.834t0.459-0.676 0.676-0.459 0.834-0.167h4.271q0.434 0 0.826 0.167t0.684 0.459 0.459 0.684 0.167 0.826v8.542h6.407q0.45 0 0.834-0.167t0.676-0.459 0.459-0.676 0.167-0.834v-12.997q0-0.434-0.317-0.751l-11.362-11.379q-0.467-0.467-1.135-0.467t-1.135 0.467l-11.362 11.379q-0.317 0.317-0.317 0.751v12.997q0 0.45 0.167 0.843t0.45 0.676 0.676 0.45 0.843 0.167h6.407z">
+          <fui:NavigationViewItem.Content>
+            <StackPanel Spacing="2">
+              <TextBlock Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavWorkbenchTitle]}"/>
+              <TextBlock FontSize="12" Opacity="0.62" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavWorkbenchSubtitle]}"/>
+            </StackPanel>
+          </fui:NavigationViewItem.Content>
+        </fui:NavigationViewItem>
+
+        <fui:NavigationViewItem
+          Tag="Icons"
+          IconSource="M30 20.109v-2.109h2v6h-6v-2h3q-0.703-0.938-1.766-1.469t-2.234-0.531q-0.797 0-1.531 0.242t-1.359 0.68-1.094 1.047-0.734 1.359l-1.875-0.656q0.375-1.047 1.031-1.906t1.523-1.477 1.898-0.953 2.141-0.336q1.422 0 2.719 0.539t2.281 1.57zM7 0q1.453 0 2.727 0.547t2.227 1.5 1.5 2.227 0.547 2.727-0.547 2.727-1.5 2.227-2.227 1.5-2.727 0.547-2.727-0.547-2.227-1.5-1.5-2.227-0.547-2.727 0.547-2.727 1.5-2.227 2.227-1.5 2.727-0.547zM2 7q0 1.031 0.391 1.945t1.070 1.594 1.594 1.070 1.945 0.391q0.734 0 1.438-0.211t1.313-0.617l-6.922-6.922q-0.406 0.609-0.617 1.313t-0.211 1.438zM4.25 2.828l6.922 6.922q0.406-0.609 0.617-1.313t0.211-1.438q0-1.031-0.398-1.938t-1.078-1.586-1.586-1.078-1.938-0.398q-0.734 0-1.438 0.211t-1.313 0.617zM25 30q0.797 0 1.531-0.242t1.352-0.68 1.094-1.047 0.742-1.359l1.875 0.656q-0.375 1.047-1.031 1.906t-1.523 1.477-1.898 0.953-2.141 0.336q-1.422 0-2.719-0.539t-2.281-1.57v2.109h-2v-6h6v2h-3q0.703 0.938 1.766 1.469t2.234 0.531zM25 13.906l-5.781-5.766q-0.594-0.594-0.906-1.352t-0.313-1.602q0-0.859 0.328-1.625t0.891-1.336 1.32-0.898 1.633-0.328q0.797 0 1.523 0.281t1.305 0.813q0.578-0.531 1.305-0.813t1.523-0.281q0.859 0 1.625 0.328t1.328 0.898 0.891 1.336 0.328 1.625q0 0.844-0.313 1.602t-0.906 1.352l-5.781 5.766zM22.188 3q-0.453 0-0.852 0.172t-0.695 0.469-0.469 0.695-0.172 0.852q0 0.438 0.164 0.828t0.477 0.703l4.359 4.359 4.359-4.359q0.641-0.641 0.641-1.531 0-0.453-0.172-0.852t-0.469-0.695-0.695-0.469-0.852-0.172-0.836 0.164-0.695 0.477l-1.281 1.281-1.281-1.281q-0.313-0.313-0.703-0.477t-0.828-0.164zM6 18h2v6h6v2h-6v6h-2v-6h-6v-2h6v-6z">
+          <fui:NavigationViewItem.Content>
+            <StackPanel Spacing="2">
+              <TextBlock Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavOpenMethodTitle]}"/>
+              <TextBlock FontSize="12" Opacity="0.62" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavOpenMethodSubtitle]}"/>
+            </StackPanel>
+          </fui:NavigationViewItem.Content>
+        </fui:NavigationViewItem>
+
+        <fui:NavigationViewItem
+          Tag="BasicInput"
+          IconSource="M3.922 32q-0.781 0-1.492-0.32t-1.25-0.859-0.859-1.25-0.32-1.492v-24.156q0-0.781 0.32-1.492t0.859-1.25 1.25-0.859 1.492-0.32h24.156q0.781 0 1.492 0.32t1.25 0.859 0.859 1.25 0.32 1.492v24.156q0 0.781-0.32 1.492t-0.859 1.25-1.25 0.859-1.492 0.32h-24.156zM28 30q0.422 0 0.781-0.156t0.633-0.43 0.43-0.633 0.156-0.781v-24q0-0.406-0.156-0.773t-0.43-0.641-0.641-0.43-0.773-0.156h-24q-0.422 0-0.781 0.156t-0.633 0.43-0.43 0.633-0.156 0.781v24q0 0.422 0.156 0.789t0.422 0.633 0.633 0.422 0.789 0.156h24zM6 15q0-0.406 0.297-0.703t0.703-0.297 0.703 0.297l5.297 5.281 11.297-11.281q0.297-0.297 0.703-0.297t0.703 0.297 0.297 0.703-0.297 0.703l-12 12q-0.297 0.297-0.703 0.297t-0.703-0.297l-6-6q-0.297-0.297-0.297-0.703z">
+          <fui:NavigationViewItem.Content>
+            <StackPanel Spacing="2">
+              <TextBlock Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavCommentsTitle]}"/>
+              <TextBlock FontSize="12" Opacity="0.62" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavCommentsSubtitle]}"/>
+            </StackPanel>
+          </fui:NavigationViewItem.Content>
+        </fui:NavigationViewItem>
+
+        <fui:NavigationViewItem
+          Tag="DialogBoxAndPopup"
+          IconSource="M0 31q0-0.406 0.133-0.844t0.227-0.828q0.359-1.484 0.75-2.938t0.75-2.938q-0.922-1.719-1.391-3.594t-0.469-3.828q0-2.203 0.57-4.258t1.609-3.836 2.5-3.242 3.242-2.508 3.828-1.617 4.25-0.57 4.242 0.57 3.82 1.617 3.242 2.5 2.508 3.234 1.617 3.82 0.57 4.242q0 2.188-0.57 4.227t-1.602 3.82-2.484 3.25-3.227 2.516-3.805 1.625-4.234 0.578q-1.938 0-3.813-0.445t-3.594-1.336l-7.438 1.75q-0.156 0.031-0.234 0.031-0.422 0-0.711-0.289t-0.289-0.711zM15.938 30q1.938 0 3.734-0.5t3.359-1.406 2.852-2.18 2.203-2.836 1.414-3.359 0.5-3.734-0.5-3.727-1.414-3.336-2.195-2.828-2.844-2.188-3.352-1.406-3.711-0.5-3.711 0.5-3.344 1.406-2.828 2.18-2.188 2.82-1.414 3.336-0.5 3.711q0 1.016 0.125 1.875t0.359 1.68 0.563 1.633 0.75 1.703q0.125 0.25 0.125 0.484 0 0.172-0.094 0.641t-0.25 1.078-0.336 1.313-0.352 1.344-0.313 1.164-0.203 0.773q1.063-0.25 2.102-0.5t2.102-0.516q0.531-0.125 1.109-0.297t1.125-0.172q0.125 0 0.234 0.039t0.234 0.086q0.844 0.391 1.633 0.711t1.586 0.539 1.641 0.344 1.797 0.125zM11 14q-0.406 0-0.703-0.297t-0.297-0.703 0.297-0.703 0.703-0.297h10q0.406 0 0.703 0.297t0.297 0.703-0.297 0.703-0.703 0.297h-10zM11 20q-0.406 0-0.703-0.297t-0.297-0.703 0.297-0.703 0.703-0.297h6q0.406 0 0.703 0.297t0.297 0.703-0.297 0.703-0.703 0.297h-6z">
+          <fui:NavigationViewItem.Content>
+            <StackPanel Spacing="2">
+              <TextBlock Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavBatchToolsTitle]}"/>
+              <TextBlock FontSize="12" Opacity="0.62" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavBatchToolsSubtitle]}"/>
+            </StackPanel>
+          </fui:NavigationViewItem.Content>
+        </fui:NavigationViewItem>
+
+        <fui:NavigationViewItem
+          Tag="Layout"
+          IconSource="M26.411 0q1.125 0 2.143 0.455t1.777 1.214 1.214 1.777 0.455 2.143v20.822q0 1.125-0.455 2.143t-1.214 1.777-1.777 1.214-2.143 0.455h-20.822q-1.125 0-2.143-0.455t-1.777-1.214-1.214-1.777-0.455-2.143v-20.822q0-1.125 0.455-2.143t1.214-1.777 1.777-1.214 2.143-0.455h20.822zM5.714 2.286q-0.696 0-1.321 0.268t-1.098 0.741-0.741 1.098-0.268 1.321v14.857h16v-18.286h-12.572zM29.714 5.714q0-0.696-0.268-1.321t-0.741-1.098-1.098-0.741-1.321-0.268h-5.714v6.857h9.143v-3.429zM29.714 11.429h-9.143v9.143h9.143v-9.143zM2.286 26.286q0 0.696 0.268 1.321t0.741 1.098 1.098 0.741 1.321 0.268h5.714v-6.857h-9.143v3.429zM26.286 29.714q0.696 0 1.321-0.268t1.098-0.741 0.741-1.098 0.268-1.321v-3.429h-16v6.857h12.572z">
+          <fui:NavigationViewItem.Content>
+            <StackPanel Spacing="2">
+              <TextBlock Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavDocumentCleanupTitle]}"/>
+              <TextBlock FontSize="12" Opacity="0.62" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavDocumentCleanupSubtitle]}"/>
+            </StackPanel>
+          </fui:NavigationViewItem.Content>
+        </fui:NavigationViewItem>
+
+        <fui:NavigationViewItem
+          Tag="About"
+          IconSource="M16 0a16 16 0 1 0 0 32a16 16 0 0 0 0-32zM15 14h2v10h-2v-10zM15 8h2v3h-2v-3z">
+          <fui:NavigationViewItem.Content>
+            <StackPanel Spacing="2">
+              <TextBlock Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavAboutTitle]}"/>
+              <TextBlock FontSize="12" Opacity="0.62" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_NavAboutSubtitle]}"/>
+            </StackPanel>
+          </fui:NavigationViewItem.Content>
+        </fui:NavigationViewItem>
+      </fui:NavigationView.MenuItems>
+
+      <fui:NavigationView.Content>
+        <fui:StackContent Content="{Binding CurrentViewModel}"/>
+      </fui:NavigationView.Content>
+    </fui:NavigationView>
+  </Grid>
+
+</view:FluentWindow>

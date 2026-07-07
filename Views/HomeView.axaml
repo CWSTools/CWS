@@ -1,0 +1,248 @@
+<UserControl
+  x:Class="Gallery.Views.HomeView"
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:fi="clr-namespace:AvaloniaFluentUI.Icons;assembly=AvaloniaFluentUI"
+  xmlns:fui="clr-namespace:AvaloniaFluentUI.Controls;assembly=AvaloniaFluentUI"
+  xmlns:locale="clr-namespace:AvaloniaFluentUI.Locale;assembly=AvaloniaFluentUI"
+  xmlns:ui="clr-namespace:Gallery.Controls"
+  xmlns:viewModel="clr-namespace:Gallery.ViewModels"
+  d:DesignHeight="1080"
+  d:DesignWidth="1920"
+  x:DataType="viewModel:HomeViewModel">
+
+  <UserControl.Styles>
+    <Style Selector="TextBlock.PageTitle">
+      <Setter Property="FontSize" Value="38"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="LineHeight" Value="46"/>
+    </Style>
+
+    <Style Selector="TextBlock.SectionTitle">
+      <Setter Property="FontSize" Value="20"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="TextBlock.Caption">
+      <Setter Property="FontSize" Value="13"/>
+      <Setter Property="LineHeight" Value="21"/>
+      <Setter Property="Opacity" Value="0.68"/>
+    </Style>
+
+    <Style Selector="Border.Pill">
+      <Setter Property="Padding" Value="10,5"/>
+      <Setter Property="CornerRadius" Value="6"/>
+      <Setter Property="Background" Value="#C8FFFFFF"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorBase}"/>
+      <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style Selector="Border.IconTile">
+      <Setter Property="Width" Value="44"/>
+      <Setter Property="Height" Value="44"/>
+      <Setter Property="CornerRadius" Value="8"/>
+      <Setter Property="Background" Value="{DynamicResource SystemAccentColorLight3}"/>
+    </Style>
+
+    <Style Selector="PathIcon.FeatureIcon">
+      <Setter Property="Width" Value="20"/>
+      <Setter Property="Height" Value="20"/>
+      <Setter Property="HorizontalAlignment" Value="Center"/>
+      <Setter Property="VerticalAlignment" Value="Center"/>
+      <Setter Property="Foreground" Value="{DynamicResource SystemAccentColorBase}"/>
+    </Style>
+  </UserControl.Styles>
+
+  <Grid>
+    <Border Background="{Binding PageOverlayBrush}"/>
+
+    <fui:SmoothScrollViewer
+      Name="SmoothScrollViewer"
+      Margin="0,0,0,20"
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch"
+      HorizontalScrollBarVisibility="Disabled"
+      Offset="{Binding ScrollViewerOffset, Mode=TwoWay}">
+
+    <StackPanel Margin="32,28,32,32" Spacing="28">
+
+      <Grid>
+        <ui:Card
+          Padding="34"
+          Background="{Binding GlassPanelBackground}"
+          BorderBrush="{Binding GlassPanelBorderBrush}"
+          BorderThickness="1">
+          <Grid ColumnDefinitions="*,Auto" ColumnSpacing="28">
+            <StackPanel Spacing="22" VerticalAlignment="Center">
+              <StackPanel Spacing="14">
+                <Border
+                  Classes="Pill"
+                  HorizontalAlignment="Left"
+                  Background="{Binding PillBackground}">
+                  <TextBlock
+                    FontSize="12"
+                    FontWeight="SemiBold"
+                    Foreground="{DynamicResource SystemAccentColorBase}"
+                    Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_Kicker]}"/>
+                </Border>
+
+                <TextBlock
+                  Classes="PageTitle"
+                  MaxWidth="620"
+                  Text="{Binding Title}"
+                  TextWrapping="Wrap"/>
+
+                <TextBlock
+                  Classes="Caption"
+                  MaxWidth="620"
+                  FontSize="15"
+                  LineHeight="24"
+                  Text="{Binding HeroDescription}"
+                  TextWrapping="Wrap"/>
+              </StackPanel>
+
+              <StackPanel Orientation="Horizontal" Spacing="10">
+                <Button Click="OnOpenAssociationsClicked" Padding="18,9">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="{x:Static fi:FluentIcon.Application}"/>
+                    <TextBlock Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_OpenAssociationButton]}"/>
+                  </StackPanel>
+                </Button>
+
+                <Button Click="OnOpenCommentsClicked" Padding="18,9">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="{x:Static fi:FluentIcon.Message}"/>
+                    <TextBlock Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_CommentsTitle]}"/>
+                  </StackPanel>
+                </Button>
+              </StackPanel>
+            </StackPanel>
+
+            <Grid
+              Grid.Column="1"
+              Width="220"
+              MinHeight="220"
+              RowDefinitions="*,*"
+              ColumnDefinitions="*,*"
+              RowSpacing="12"
+              ColumnSpacing="12"
+              VerticalAlignment="Center">
+              <Border Background="{Binding MiniTileBackground}" BorderBrush="{Binding MiniTileBorderBrush}" BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel VerticalAlignment="Bottom" Spacing="6">
+                  <PathIcon Width="28" Height="28" Data="{x:Static fi:FluentIcon.Document}"/>
+                  <TextBlock FontSize="13" FontWeight="SemiBold" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_DocumentTile]}"/>
+                </StackPanel>
+              </Border>
+
+              <Border Grid.Column="1" Background="{Binding MiniTileBackground}" BorderBrush="{Binding MiniTileBorderBrush}" BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel VerticalAlignment="Bottom" Spacing="6">
+                  <PathIcon Width="28" Height="28" Data="{x:Static fi:FluentIcon.Message}"/>
+                  <TextBlock FontSize="13" FontWeight="SemiBold" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_CommentTile]}"/>
+                </StackPanel>
+              </Border>
+
+              <Border Grid.Row="1" Background="{Binding MiniTileBackground}" BorderBrush="{Binding MiniTileBorderBrush}" BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel VerticalAlignment="Bottom" Spacing="6">
+                  <PathIcon Width="28" Height="28" Data="{x:Static fi:FluentIcon.Application}"/>
+                  <TextBlock FontSize="13" FontWeight="SemiBold" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_OpenTile]}"/>
+                </StackPanel>
+              </Border>
+
+              <Border Grid.Row="1" Grid.Column="1" Background="{Binding MiniTileBackground}" BorderBrush="{Binding MiniTileBorderBrush}" BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel VerticalAlignment="Bottom" Spacing="6">
+                  <PathIcon Width="28" Height="28" Data="{x:Static fi:FluentIcon.Send}"/>
+                  <TextBlock FontSize="13" FontWeight="SemiBold" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_BatchTile]}"/>
+                </StackPanel>
+              </Border>
+            </Grid>
+          </Grid>
+        </ui:Card>
+
+      </Grid>
+
+      <Grid ColumnDefinitions="*,*,*" ColumnSpacing="16">
+        <ui:LinkCard
+          Height="156"
+          HorizontalAlignment="Stretch"
+          Background="{Binding GlassPanelBackground}"
+          BorderBrush="{Binding GlassPanelBorderBrush}"
+          Click="OnOpenAssociationsClicked"
+          IconData="{x:Static fi:FluentIcon.Application}"
+          Title="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_OpenAssociationTitle]}"
+          Content="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_OpenAssociationDescription]}"/>
+
+        <ui:LinkCard
+          Grid.Column="1"
+          Height="156"
+          HorizontalAlignment="Stretch"
+          Background="{Binding GlassPanelBackground}"
+          BorderBrush="{Binding GlassPanelBorderBrush}"
+          Click="OnOpenCommentsClicked"
+          IconData="{x:Static fi:FluentIcon.Message}"
+          Title="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_BetterCommentsTitle]}"
+          Content="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_BetterCommentsDescription]}"/>
+
+        <ui:LinkCard
+          Grid.Column="2"
+          Height="156"
+          HorizontalAlignment="Stretch"
+          Background="{Binding GlassPanelBackground}"
+          BorderBrush="{Binding GlassPanelBorderBrush}"
+          Click="OnOpenBatchToolsClicked"
+          IconData="{x:Static fi:FluentIcon.Send}"
+          Title="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_BatchDocumentToolsTitle]}"
+          Content="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_BatchDocumentToolsDescription]}"/>
+      </Grid>
+
+      <Grid ColumnDefinitions="*,*,*" ColumnSpacing="16">
+        <ui:Card Padding="22" Background="{Binding GlassPanelBackground}" BorderBrush="{Binding GlassPanelBorderBrush}" BorderThickness="1">
+          <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+            <Border Classes="IconTile" Background="{Binding IconTileBackground}">
+              <PathIcon Classes="FeatureIcon" Data="{x:Static fi:FluentIcon.Application}"/>
+            </Border>
+            <StackPanel Grid.Column="1" Spacing="6">
+              <TextBlock FontSize="16" FontWeight="SemiBold" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_StandardAssociationTitle]}"/>
+              <TextBlock
+                Classes="Caption"
+                Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_StandardAssociationDescription]}"
+                TextWrapping="Wrap"/>
+            </StackPanel>
+          </Grid>
+        </ui:Card>
+
+        <ui:Card Grid.Column="1" Padding="22" Background="{Binding GlassPanelBackground}" BorderBrush="{Binding GlassPanelBorderBrush}" BorderThickness="1">
+          <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+            <Border Classes="IconTile" Background="{Binding IconTileBackground}">
+              <PathIcon Classes="FeatureIcon" Data="{x:Static fi:FluentIcon.Message}"/>
+            </Border>
+            <StackPanel Grid.Column="1" Spacing="6">
+              <TextBlock FontSize="16" FontWeight="SemiBold" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_EfficientCommentsTitle]}"/>
+              <TextBlock
+                Classes="Caption"
+                Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_EfficientCommentsDescription]}"
+                TextWrapping="Wrap"/>
+            </StackPanel>
+          </Grid>
+        </ui:Card>
+
+        <ui:Card Grid.Column="2" Padding="22" Background="{Binding GlassPanelBackground}" BorderBrush="{Binding GlassPanelBorderBrush}" BorderThickness="1">
+          <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+            <Border Classes="IconTile" Background="{Binding IconTileBackground}">
+              <PathIcon Classes="FeatureIcon" Data="{x:Static fi:FluentIcon.Document}"/>
+            </Border>
+            <StackPanel Grid.Column="1" Spacing="6">
+              <TextBlock FontSize="16" FontWeight="SemiBold" Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_ExtensibleTitle]}"/>
+              <TextBlock
+                Classes="Caption"
+                Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_ExtensibleDescription]}"
+                TextWrapping="Wrap"/>
+            </StackPanel>
+          </Grid>
+        </ui:Card>
+      </Grid>
+
+    </StackPanel>
+    </fui:SmoothScrollViewer>
+  </Grid>
+</UserControl>

@@ -1,0 +1,49 @@
+# Build output
+bin/
+obj/
+TestResults/
+
+# Publish and installer output
+publish/
+installer/
+Release/
+
+# Local tools bundled for building/installers
+Tools/
+
+# Visual Studio / Rider / VS Code local state
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# .NET generated files
+*.nupkg
+*.snupkg
+*.deps.json
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+*.dll
+*.exe
+*.pdb
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+*.cache
+*.bak
+*.orig
+*.swp
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Codex / agent local state
+.agents/
+.codex/
