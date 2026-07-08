@@ -1,0 +1,126 @@
+name: Build prerelease
+
+on:
+  workflow_dispatch:
+    inputs:
+      self_contained:
+        description: "Publish as self-contained single-file build"
+        required: false
+        default: false
+        type: boolean
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prerelease-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-prerelease:
+    name: Build and publish prerelease
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Install Inno Setup
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+
+          $paths = @(
+            "${env:ProgramFiles(x86)}\Inno Setup 6",
+            "$env:ProgramFiles\Inno Setup 6"
+          )
+
+          foreach ($path in $paths) {
+            if (Test-Path -LiteralPath (Join-Path $path "ISCC.exe")) {
+              Add-Content -Path $env:GITHUB_PATH -Value $path
+              break
+            }
+          }
+
+      - name: Prepare release version
+        id: version
+        shell: pwsh
+        run: |
+          [xml]$projectXml = Get-Content -LiteralPath "Gallery.csproj"
+          $rawVersion = [string]($projectXml.Project.PropertyGroup | Select-Object -First 1).Version
+          if ([string]::IsNullOrWhiteSpace($rawVersion)) {
+            $rawVersion = "0.1.0"
+          }
+
+          $baseVersion = ($rawVersion -split "-", 2)[0]
+          $parts = $baseVersion.Split(".")
+          $major = if ($parts.Length -ge 1 -and $parts[0]) { $parts[0] } else { "0" }
+          $minor = if ($parts.Length -ge 2 -and $parts[1]) { $parts[1] } else { "1" }
+          $releaseVersion = "$major.$minor.${env:GITHUB_RUN_NUMBER}"
+          $tagName = "v$releaseVersion"
+
+          "release_version=$releaseVersion" >> $env:GITHUB_OUTPUT
+          "tag_name=$tagName" >> $env:GITHUB_OUTPUT
+
+          Write-Host "Release version: $releaseVersion"
+          Write-Host "Tag name: $tagName"
+
+      - name: Build installer
+        shell: pwsh
+        run: |
+          $args = @(
+            "-Configuration", "Release",
+            "-Runtime", "win-x64",
+            "-PublishOutput", "publish",
+            "-InstallerOutput", "installer",
+            "-KillRunning"
+          )
+
+          if ("${{ inputs.self_contained }}" -eq "true") {
+            $args += "-SelfContained"
+          }
+
+          ./publish-installer.ps1 @args
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CWS-Tool-${{ steps.version.outputs.release_version }}
+          path: installer/*.exe
+          if-no-files-found: error
+
+      - name: Create and push tag
+        shell: pwsh
+        run: |
+          $tagName = "${{ steps.version.outputs.tag_name }}"
+
+          git fetch --tags
+          if (git rev-parse -q --verify "refs/tags/$tagName") {
+            throw "Tag '$tagName' already exists. Start a new workflow run to get a new incremental version."
+          }
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag $tagName $env:GITHUB_SHA
+          git push origin $tagName
+
+      - name: Create GitHub prerelease
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag_name }}
+          name: CWS Tool (${{ steps.version.outputs.release_version }})
+          prerelease: true
+          make_latest: false
+          generate_release_notes: true
+          files: installer/*.exe
