@@ -47,3 +47,7 @@ Desktop.ini
 # Codex / agent local state
 .agents/
 .codex/
+
+# Vendored assembly references needed by CI builds
+!ProjectReferences/
+!ProjectReferences/**

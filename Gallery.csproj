@@ -13,7 +13,7 @@
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <UsedAvaloniaProducts>
     </UsedAvaloniaProducts>
-    <RestoreSources>$(UserProfile)\.nuget\packages;$(RestoreSources)</RestoreSources>
+    <RestoreSources>$(UserProfile)\.nuget\packages;https://api.nuget.org/v3/index.json;$(RestoreSources)</RestoreSources>
     <RestoreIgnoreFailedSources>true</RestoreIgnoreFailedSources>
   </PropertyGroup>
   <ItemGroup>
@@ -45,14 +45,21 @@
     <PackageReference Include="MicroCom.Runtime" Version="0.11.5" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AvaloniaFluentUI" Condition="Exists('bin\ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll')">
+    <Reference Include="AvaloniaFluentUI" Condition="Exists('ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll')">
+      <HintPath>ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="AvaloniaFluentUI" Condition="!Exists('ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll') And Exists('bin\ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll')">
       <HintPath>bin\ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll</HintPath>
       <Private>true</Private>
     </Reference>
-    <Reference Include="AvaloniaFluentUI" Condition="!Exists('bin\ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll') And Exists('..\CWSTool\Avalonia-Fluent-UI\src\AvaloniaFluentUI\bin\Debug\net10.0\AvaloniaFluentUI.dll')">
+    <Reference Include="AvaloniaFluentUI" Condition="!Exists('ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll') And !Exists('bin\ProjectReferences\AvaloniaFluentUI\Debug\net10.0\AvaloniaFluentUI.dll') And Exists('..\CWSTool\Avalonia-Fluent-UI\src\AvaloniaFluentUI\bin\Debug\net10.0\AvaloniaFluentUI.dll')">
       <HintPath>..\CWSTool\Avalonia-Fluent-UI\src\AvaloniaFluentUI\bin\Debug\net10.0\AvaloniaFluentUI.dll</HintPath>
       <Private>true</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProjectReferences\AvaloniaFluentUI\Debug\net10.0\**\*.resources.dll" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Pages\FP\FramePage1.axaml.cs">
