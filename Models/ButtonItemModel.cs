@@ -26,7 +26,7 @@ public class ButtonItemModel : IDisposable
             {
                 try
                 {
-                    using var stream = AssetLoader.Open(new Uri($"avares://Gallery/Assets/Controls/{_imageName}.png"));
+                    using var stream = AssetLoader.Open(new Uri($"avares://CWSTool/Assets/Controls/{_imageName}.png"));
                     _image = Bitmap.DecodeToHeight(stream, 72);
                 }
                 catch (FileNotFoundException)

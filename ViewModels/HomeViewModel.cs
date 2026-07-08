@@ -36,7 +36,7 @@ public partial class HomeViewModel : ViewModelBase
             (_, message) => IsBackgroundImageEnabled = message.IsVisible);
 
         CoreWorkspaceItems = ButtonItemModel.CreateList(
-            ("Button", LocalizationService.Instance.GetString("HV_OpenAssociationTitle"), "Icons", LocalizationService.Instance.GetString("HV_OpenAssociationDescription")),
+            ("Button", LocalizationService.Instance.GetString("HV_OpenAssociationTitle"), "OpenMethod", LocalizationService.Instance.GetString("HV_OpenAssociationDescription")),
             ("TextBox", LocalizationService.Instance.GetString("HV_CommentsTitle"), "BasicInput", LocalizationService.Instance.GetString("HV_CommentsDescription")),
             ("CommandBar", LocalizationService.Instance.GetString("HV_BatchToolsTitle"), "DialogBoxAndPopup", LocalizationService.Instance.GetString("HV_BatchToolsDescription")),
             ("StackPanel", LocalizationService.Instance.GetString("HV_DocumentCleanupTitle"), "Layout", LocalizationService.Instance.GetString("HV_DocumentCleanupDescription"))
@@ -57,28 +57,44 @@ public partial class HomeViewModel : ViewModelBase
     private bool IsDarkTheme => AvaloniaFluentTheme.Instance.IsDarkTheme;
 
     public IBrush PageOverlayBrush => IsBackgroundImageEnabled
-        ? Brush.Parse(IsDarkTheme ? "#8A0B0D12" : "#30F7F9FB")
-        : Brushes.Transparent;
+        ? Brush.Parse(IsDarkTheme ? "#8A0B0D12" : "#24F7F9FB")
+        : Brush.Parse(IsDarkTheme ? "#00000000" : "#FFF0F4F8");
 
     public IBrush GlassPanelBackground => Brush.Parse(IsBackgroundImageEnabled
-        ? IsDarkTheme ? "#781A1D24" : "#74FFFFFF"
-        : IsDarkTheme ? "#E01F2024" : "#F5FFFFFF");
+        ? IsDarkTheme ? "#781A1D24" : "#64FFFFFF"
+        : IsDarkTheme ? "#E01F2024" : "#FAFFFFFF");
 
     public IBrush GlassPanelBorderBrush => Brush.Parse(IsBackgroundImageEnabled
-        ? IsDarkTheme ? "#32FFFFFF" : "#66FFFFFF"
-        : IsDarkTheme ? "#2EFFFFFF" : "#22000000");
+        ? IsDarkTheme ? "#32FFFFFF" : "#3A142236"
+        : IsDarkTheme ? "#2EFFFFFF" : "#38000000");
+
+    public IBrush LinkPanelBackground => Brush.Parse(IsBackgroundImageEnabled
+        ? IsDarkTheme ? "#60212730" : "#56FFFFFF"
+        : IsDarkTheme ? "#D91F2024" : "#FAFFFFFF");
+
+    public IBrush LinkPanelBorderBrush => Brush.Parse(IsBackgroundImageEnabled
+        ? IsDarkTheme ? "#30FFFFFF" : "#32142236"
+        : IsDarkTheme ? "#2CFFFFFF" : "#34000000");
+
+    public IBrush FeaturePanelBackground => Brush.Parse(IsBackgroundImageEnabled
+        ? IsDarkTheme ? "#6A20252D" : "#60FFFFFF"
+        : IsDarkTheme ? "#D91F2024" : "#FCFFFFFF");
+
+    public IBrush FeaturePanelBorderBrush => Brush.Parse(IsBackgroundImageEnabled
+        ? IsDarkTheme ? "#34FFFFFF" : "#36142236"
+        : IsDarkTheme ? "#2EFFFFFF" : "#36000000");
 
     public IBrush MiniTileBackground => Brush.Parse(IsBackgroundImageEnabled
-        ? IsDarkTheme ? "#5E232730" : "#62FFFFFF"
-        : IsDarkTheme ? "#B82A2C31" : "#FAFFFFFF");
+        ? IsDarkTheme ? "#5E232730" : "#50FFFFFF"
+        : IsDarkTheme ? "#B82A2C31" : "#F4FAFF");
 
     public IBrush MiniTileBorderBrush => Brush.Parse(IsBackgroundImageEnabled
-        ? IsDarkTheme ? "#28FFFFFF" : "#55FFFFFF"
-        : IsDarkTheme ? "#22FFFFFF" : "#18000000");
+        ? IsDarkTheme ? "#28FFFFFF" : "#42142236"
+        : IsDarkTheme ? "#22FFFFFF" : "#32000000");
 
     public IBrush PillBackground => Brush.Parse(IsBackgroundImageEnabled
-        ? IsDarkTheme ? "#362C313A" : "#88FFFFFF"
-        : IsDarkTheme ? "#2AFFFFFF" : "#ECFFFFFF");
+        ? IsDarkTheme ? "#362C313A" : "#72FFFFFF"
+        : IsDarkTheme ? "#2AFFFFFF" : "#FFFFFFFF");
 
     public IBrush IconTileBackground => Brush.Parse(IsDarkTheme ? "#243B42" : "#DCEFF2");
 
@@ -89,6 +105,10 @@ public partial class HomeViewModel : ViewModelBase
         OnPropertyChanged(nameof(PageOverlayBrush));
         OnPropertyChanged(nameof(GlassPanelBackground));
         OnPropertyChanged(nameof(GlassPanelBorderBrush));
+        OnPropertyChanged(nameof(LinkPanelBackground));
+        OnPropertyChanged(nameof(LinkPanelBorderBrush));
+        OnPropertyChanged(nameof(FeaturePanelBackground));
+        OnPropertyChanged(nameof(FeaturePanelBorderBrush));
         OnPropertyChanged(nameof(MiniTileBackground));
         OnPropertyChanged(nameof(MiniTileBorderBrush));
         OnPropertyChanged(nameof(PillBackground));

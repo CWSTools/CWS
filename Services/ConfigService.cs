@@ -68,7 +68,10 @@ public class ConfigService
                 WindowEffect = "Mica",
                 Language = "zh-CN",
                 ReleaseResourcesOnMinimize = true,
-                HideToTrayAfterMinimizeDelay = true
+                HideToTrayAfterMinimizeDelay = true,
+                IsBehaviorLoggingEnabled = false,
+                IsLaunchAtStartupEnabled = false,
+                OpenMethodPreferences = []
             };
 
             Console.WriteLine("Config File Not Exists, Return Of Create");

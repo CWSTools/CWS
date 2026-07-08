@@ -21,8 +21,8 @@ public partial class ScrollView : ViewBase
     {
         base.OnAttachedToVisualTree(e);
         
-        using var verticalImageStream = AssetLoader.Open(new Uri("avares://Gallery/Assets/Images/0.jpg"));
-        using var horizontalImageStream = AssetLoader.Open(new Uri("avares://Gallery/Assets/Images/mc.jpg"));
+        using var verticalImageStream = AssetLoader.Open(new Uri("avares://CWSTool/Assets/Images/0.jpg"));
+        using var horizontalImageStream = AssetLoader.Open(new Uri("avares://CWSTool/Assets/Images/mc.jpg"));
         _b1 =  Bitmap.DecodeToHeight(verticalImageStream, 1024);
         _b2 = Bitmap.DecodeToHeight(horizontalImageStream, 600);
 

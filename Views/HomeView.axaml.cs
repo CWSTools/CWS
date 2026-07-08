@@ -45,7 +45,7 @@ public partial class HomeView : UserControl
 
     private void OnOpenAssociationsClicked(object? sender, RoutedEventArgs e)
     {
-        NavigateTo("Icons", LocalizationService.Instance.GetString("HV_OpenAssociationTitle"));
+        NavigateTo("OpenMethod", LocalizationService.Instance.GetString("HV_OpenAssociationTitle"));
     }
 
     private void OnOpenCommentsClicked(object? sender, RoutedEventArgs e)

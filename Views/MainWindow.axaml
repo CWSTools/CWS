@@ -88,11 +88,11 @@
 
 
   <!-- <Window.Background> -->
-  <!-- <ImageBrush Source="avares://Gallery/Assets/Images/5.jpg" Stretch="UniformToFill"></ImageBrush> -->
+  <!-- <ImageBrush Source="avares://CWSTool/Assets/Images/5.jpg" Stretch="UniformToFill"></ImageBrush> -->
   <!-- </Window.Background> -->
 
   <view:FluentWindow.TitleBarContent>
-    <Grid ColumnDefinitions="*, Auto, Auto, Auto">
+    <Grid ColumnDefinitions="*, Auto, Auto">
       <fui:SearchTextBox
         Width="256"
         Margin="0,10,0,0"
@@ -101,54 +101,8 @@
         PlaceholderText="{Binding SearchWatermark}"/>
 
       <fui:ToolButton
-        Grid.Column="1"
-        Width="46"
-        Height="45"
-        HorizontalAlignment="Right"
-        VerticalAlignment="Top"
-        Classes="Transparent"
-        Content="{x:Static fi:FluentIcon.Setting}">
-        <fui:ToolButton.Flyout>
-          <fui:FluentFlyout Placement="Bottom">
-            <Grid
-              MaxWidth="288"
-              MaxHeight="328"
-              Margin="15"
-              ColumnDefinitions="Auto, *"
-              ColumnSpacing="6"
-              RowDefinitions="Auto, Auto"
-              RowSpacing="8">
-              <TextBlock
-                Grid.Row="0"
-                Grid.Column="0"
-                VerticalAlignment="Center"
-                Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_BorderWidth]}"/>
-              <ComboBox
-                Grid.Row="0"
-                Grid.Column="1"
-                MinWidth="100"
-                HorizontalAlignment="Stretch"
-                ItemsSource="{Binding BorderWidthItems}"
-                SelectedItem="{Binding SelectedBorderWidthItem}"/>
-
-              <TextBlock
-                Grid.Row="1"
-                Grid.Column="0"
-                VerticalAlignment="Center"
-                Text="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[MW_BorderColor]}"/>
-              <ColorPicker
-                Grid.Row="1"
-                Grid.Column="1"
-                HorizontalAlignment="Stretch"
-                Color="{Binding SelectedBorderColor}"/>
-            </Grid>
-          </fui:FluentFlyout>
-        </fui:ToolButton.Flyout>
-      </fui:ToolButton>
-
-      <fui:ToolButton
         Name="PinButton"
-        Grid.Column="2"
+        Grid.Column="1"
         Width="46"
         Height="45"
         HorizontalAlignment="Right"
@@ -158,7 +112,7 @@
         Content="{x:Static fi:FluentIcon.Pin}"
         Tag="noTopmost"/>
       <fui:ToolButton
-        Grid.Column="3"
+        Grid.Column="2"
         Width="46"
         Height="45"
         HorizontalAlignment="Right"
@@ -259,7 +213,7 @@
         </fui:NavigationViewItem>
 
         <fui:NavigationViewItem
-          Tag="Icons"
+          Tag="OpenMethod"
           IconSource="M30 20.109v-2.109h2v6h-6v-2h3q-0.703-0.938-1.766-1.469t-2.234-0.531q-0.797 0-1.531 0.242t-1.359 0.68-1.094 1.047-0.734 1.359l-1.875-0.656q0.375-1.047 1.031-1.906t1.523-1.477 1.898-0.953 2.141-0.336q1.422 0 2.719 0.539t2.281 1.57zM7 0q1.453 0 2.727 0.547t2.227 1.5 1.5 2.227 0.547 2.727-0.547 2.727-1.5 2.227-2.227 1.5-2.727 0.547-2.727-0.547-2.227-1.5-1.5-2.227-0.547-2.727 0.547-2.727 1.5-2.227 2.227-1.5 2.727-0.547zM2 7q0 1.031 0.391 1.945t1.070 1.594 1.594 1.070 1.945 0.391q0.734 0 1.438-0.211t1.313-0.617l-6.922-6.922q-0.406 0.609-0.617 1.313t-0.211 1.438zM4.25 2.828l6.922 6.922q0.406-0.609 0.617-1.313t0.211-1.438q0-1.031-0.398-1.938t-1.078-1.586-1.586-1.078-1.938-0.398q-0.734 0-1.438 0.211t-1.313 0.617zM25 30q0.797 0 1.531-0.242t1.352-0.68 1.094-1.047 0.742-1.359l1.875 0.656q-0.375 1.047-1.031 1.906t-1.523 1.477-1.898 0.953-2.141 0.336q-1.422 0-2.719-0.539t-2.281-1.57v2.109h-2v-6h6v2h-3q0.703 0.938 1.766 1.469t2.234 0.531zM25 13.906l-5.781-5.766q-0.594-0.594-0.906-1.352t-0.313-1.602q0-0.859 0.328-1.625t0.891-1.336 1.32-0.898 1.633-0.328q0.797 0 1.523 0.281t1.305 0.813q0.578-0.531 1.305-0.813t1.523-0.281q0.859 0 1.625 0.328t1.328 0.898 0.891 1.336 0.328 1.625q0 0.844-0.313 1.602t-0.906 1.352l-5.781 5.766zM22.188 3q-0.453 0-0.852 0.172t-0.695 0.469-0.469 0.695-0.172 0.852q0 0.438 0.164 0.828t0.477 0.703l4.359 4.359 4.359-4.359q0.641-0.641 0.641-1.531 0-0.453-0.172-0.852t-0.469-0.695-0.695-0.469-0.852-0.172-0.836 0.164-0.695 0.477l-1.281 1.281-1.281-1.281q-0.313-0.313-0.703-0.477t-0.828-0.164zM6 18h2v6h6v2h-6v6h-2v-6h-6v-2h6v-6z">
           <fui:NavigationViewItem.Content>
             <StackPanel Spacing="2">

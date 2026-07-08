@@ -29,12 +29,12 @@ namespace Gallery.Views;
 
 public class MainWindowSplashScreen : IApplicationSplashScreen
 {
-    public string AppName => "Avalonia Fluent UI Gallery";
+    public string AppName => "CWS Tool";
     public IImage AppIcon
     {
         get
         {
-            using var stream = AssetLoader.Open(new Uri("avares://Gallery/Assets/app.ico"));
+            using var stream = AssetLoader.Open(new Uri("avares://CWSTool/Assets/app.ico"));
             return new Bitmap(stream);
         }
     }
@@ -51,6 +51,7 @@ public partial class MainWindow : FluentWindow
 {
     private Bitmap? _backgroundImage;
     private readonly DispatcherTimer _backgroundOnlyTimer;
+    private bool _isApplicationCloseRequested;
     
     public MainWindow()
     {
@@ -91,7 +92,7 @@ public partial class MainWindow : FluentWindow
 
     private Bitmap LoadImageResource()
     {
-        using var stream = AssetLoader.Open(new Uri("avares://Gallery/Assets/Images/bg.jpg"));
+        using var stream = AssetLoader.Open(new Uri("avares://CWSTool/Assets/Images/bg.jpg"));
         return Bitmap.DecodeToHeight(stream, 1024);
     }
 
@@ -137,7 +138,7 @@ public partial class MainWindow : FluentWindow
         _backgroundOnlyTimer.Stop();
         if (WindowState == WindowState.Minimized)
         {
-            Hide();
+            HideToTray();
         }
     }
 
@@ -231,13 +232,17 @@ public partial class MainWindow : FluentWindow
                     IsEnabledBackgroundImage = svm.IsEnabledBackgroundImage,
                     Language = svm.CurrentLanguage,
                     ReleaseResourcesOnMinimize = svm.IsReleaseResourcesOnMinimize,
-                    HideToTrayAfterMinimizeDelay = svm.IsHideToTrayAfterMinimizeDelay
+                    HideToTrayAfterMinimizeDelay = svm.IsHideToTrayAfterMinimizeDelay,
+                    IsBehaviorLoggingEnabled = svm.IsBehaviorLoggingEnabled,
+                    IsLaunchAtStartupEnabled = svm.IsLaunchAtStartupEnabled,
+                    OpenMethodPreferences = viewModel.OpenMethodViewModel.ExportPreferences()
                 };
                 if (svm.IsCustomColor)
                 {
                     config.CustomAccentColor = svm.SelectedAccentColor.ToString();
                 }
                 ConfigService.SaveConfig(config);
+                AppLoggerService.Info("config", "Application config saved.");
                 
 #if DEBUG
                 Debug.WriteLine("Save Config Success");
@@ -259,13 +264,53 @@ public partial class MainWindow : FluentWindow
     protected override void OnClosing(WindowClosingEventArgs e)
     {
         SaveConfig();
+
+        if (!_isApplicationCloseRequested)
+        {
+            e.Cancel = true;
+            HideToTray();
+            AppLoggerService.Info("app", "Main window hidden to tray from close button.");
+            return;
+        }
+
+        DisposeWindowResources();
+        base.OnClosing(e);
+    }
+
+    public void RestoreFromTray()
+    {
+        _backgroundOnlyTimer.Stop();
+        ShowInTaskbar = true;
+        Show();
+        WindowState = WindowState.Normal;
+        RestoreForegroundResources();
+        Activate();
+        Focus();
+        AppLoggerService.Info("app", "Main window restored from tray.");
+    }
+
+    public void RequestApplicationClose()
+    {
+        _isApplicationCloseRequested = true;
+        Close();
+    }
+
+    private void HideToTray()
+    {
+        _backgroundOnlyTimer.Stop();
+        WindowState = WindowState.Normal;
+        ShowInTaskbar = false;
+        Hide();
+    }
+
+    private void DisposeWindowResources()
+    {
         _backgroundOnlyTimer.Stop();
         _backgroundOnlyTimer.Tick -= OnBackgroundOnlyTimerTick;
         ReleaseBackgroundImage();
         Loaded -= OnLoaded;
         LocalizationService.Instance.PropertyChanged -= OnLocalizationChanged;
         WeakReferenceMessenger.Default.UnregisterAll(this);
-        base.OnClosing(e);
     }
 
     private void OnLoaded(object? sender, RoutedEventArgs e)

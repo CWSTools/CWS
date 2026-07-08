@@ -3,9 +3,9 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <AssemblyName>Gallery</AssemblyName>
+    <AssemblyName>CWSTool</AssemblyName>
     <RootNamespace>Gallery</RootNamespace>
-    <Version>0.2.0-260707231243.b46a440</Version>
+    <Version>0.2.0-260708230623.e5aa017</Version>
     <Authors>CWS</Authors>
     <Company>CWS</Company>
     <ApplicationIcon>Assets/app.ico</ApplicationIcon>
@@ -19,12 +19,21 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" Exclude="Assets\Fonts\**" />
     <Content Include="Assets\Locale\*.resx" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="Assets\Icons\**\*.ico" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Tools\**" />
+    <Compile Remove="CWSOpenHost\**" />
+    <Compile Remove="OpenHost\**" />
     <EmbeddedResource Remove="Tools\**" />
+    <EmbeddedResource Remove="CWSOpenHost\**" />
+    <EmbeddedResource Remove="OpenHost\**" />
     <None Remove="Tools\**" />
+    <None Remove="CWSOpenHost\**" />
+    <None Remove="OpenHost\**" />
     <Content Remove="Tools\**" />
+    <Content Remove="CWSOpenHost\**" />
+    <Content Remove="OpenHost\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="12.0.3" />

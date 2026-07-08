@@ -754,7 +754,7 @@
     <value>视图</value>
   </data>
   <data name="MV_Title" xml:space="preserve">
-    <value>Avalonia Fluent UI Gallery</value>
+    <value>CWS Tool</value>
   </data>
   <data name="MV_SearchWatermark" xml:space="preserve">
     <value>请输入要搜索的内容</value>
@@ -1312,7 +1312,7 @@
     <value>构建当前项目</value>
   </data>
   <data name="MT_BuildStartupProject" xml:space="preserve">
-    <value>构建启动项目: Gallery</value>
+    <value>构建启动项目: CWS Tool</value>
   </data>
   <data name="MT_AdvancedBuild" xml:space="preserve">
     <value>高级构建操作</value>
@@ -1324,16 +1324,16 @@
     <value>运行(_U)</value>
   </data>
   <data name="MT_RerunProject" xml:space="preserve">
-    <value>重新运行.'NET项目: Gallery'</value>
+    <value>重新运行.'NET项目: CWS Tool'</value>
   </data>
   <data name="MT_DebugGallery" xml:space="preserve">
-    <value>调试'Gallery'</value>
+    <value>调试'CWS Tool'</value>
   </data>
   <data name="MT_RunWithProfiler" xml:space="preserve">
     <value>使用分析器运行</value>
   </data>
   <data name="MT_AnalyzeGallery" xml:space="preserve">
-    <value>分析'Gallery'(使用 时间线)</value>
+    <value>分析'CWS Tool'(使用 时间线)</value>
   </data>
   <data name="MT_AttachToProcess" xml:space="preserve">
     <value>附加到进程</value>
@@ -1685,6 +1685,156 @@
   <data name="MW_NavOpenMethodSubtitle" xml:space="preserve">
     <value>切换 Office / WPS 默认程序</value>
   </data>
+  <data name="OM_Title" xml:space="preserve">
+    <value>文档优化</value>
+  </data>
+  <data name="OM_PageDescription" xml:space="preserve">
+    <value>先把文档默认打开方式整理清楚，再逐步接入真正的系统级切换能力。</value>
+  </data>
+  <data name="OM_SectionTitle" xml:space="preserve">
+    <value>文件关联</value>
+  </data>
+  <data name="OM_SectionDescription" xml:space="preserve">
+    <value>切换所有格式的打开方式</value>
+  </data>
+  <data name="OM_ComboLabel" xml:space="preserve">
+    <value>选择打开方式</value>
+  </data>
+  <data name="OM_CurrentTargetLabel" xml:space="preserve">
+    <value>当前生效</value>
+  </data>
+  <data name="OM_RefreshCurrentButton" xml:space="preserve">
+    <value>刷新当前默认值</value>
+  </data>
+  <data name="OM_Office" xml:space="preserve">
+    <value>Microsoft Office</value>
+  </data>
+  <data name="OM_Wps" xml:space="preserve">
+    <value>WPS Office</value>
+  </data>
+  <data name="OM_System" xml:space="preserve">
+    <value>系统默认</value>
+  </data>
+  <data name="OM_Mixed" xml:space="preserve">
+    <value>混合</value>
+  </data>
+  <data name="OM_Unknown" xml:space="preserve">
+    <value>未识别</value>
+  </data>
+  <data name="OM_PowerPoint" xml:space="preserve">
+    <value>PPT 切换</value>
+  </data>
+  <data name="OM_PowerPointDescription" xml:space="preserve">
+    <value>切换 Microsoft PowerPoint 或 WPS 演示的默认打开方式。</value>
+  </data>
+  <data name="OM_Word" xml:space="preserve">
+    <value>Word 切换</value>
+  </data>
+  <data name="OM_WordDescription" xml:space="preserve">
+    <value>切换 Microsoft Word 或 WPS 文字的默认打开方式。</value>
+  </data>
+  <data name="OM_Excel" xml:space="preserve">
+    <value>Excel 切换</value>
+  </data>
+  <data name="OM_ExcelDescription" xml:space="preserve">
+    <value>切换 Microsoft Excel 或 WPS 表格的默认打开方式。</value>
+  </data>
+  <data name="OM_Pdf" xml:space="preserve">
+    <value>PDF 切换</value>
+  </data>
+  <data name="OM_PdfDescription" xml:space="preserve">
+    <value>切换 PDF 文档默认使用的打开程序。</value>
+  </data>
+  <data name="OM_ConfirmDialogTitle" xml:space="preserve">
+    <value>确认切换打开方式</value>
+  </data>
+  <data name="OM_ConfirmDialogDescription" xml:space="preserve">
+    <value>本次修改会更新当前规则草案。确认后才会保存为新的生效设置。</value>
+  </data>
+  <data name="OM_ConfirmChangeMessage" xml:space="preserve">
+    <value>{0} 将从“{1}”切换为“{2}”。</value>
+  </data>
+  <data name="OM_ConfirmApplyButton" xml:space="preserve">
+    <value>确认切换</value>
+  </data>
+  <data name="OM_ConfirmCancelButton" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="OM_TestOpenButton" xml:space="preserve">
+    <value>选择文件测试</value>
+  </data>
+  <data name="OM_RegisterSystemEntryButton" xml:space="preserve">
+    <value>设为系统打开入口</value>
+  </data>
+  <data name="OM_SystemEntryStatusLabel" xml:space="preserve">
+    <value>系统入口状态</value>
+  </data>
+  <data name="OM_SystemEntryStatusRegistered" xml:space="preserve">
+    <value>CWS Tool 已注册为系统候选入口，当前 {0}/{1} 个扩展已在系统默认应用中指向 CWS Tool。</value>
+  </data>
+  <data name="OM_SystemEntryStatusNotRegistered" xml:space="preserve">
+    <value>CWS Tool 尚未注册为系统候选入口。点击按钮后，在 Windows 默认应用中把相关扩展设为 CWS Tool。</value>
+  </data>
+  <data name="OM_SelectedApp" xml:space="preserve">
+    <value>所选程序</value>
+  </data>
+  <data name="OM_ResultSaved" xml:space="preserve">
+    <value>已保存打开方式偏好。</value>
+  </data>
+  <data name="OM_ResultSavedWithTarget" xml:space="preserve">
+    <value>已保存。后续从 CWS Tool 打开 {1} 文件时将优先使用 {0}。</value>
+  </data>
+  <data name="OM_ResultSavedToSystem" xml:space="preserve">
+    <value>已保存。后续将继续交给系统默认程序处理。</value>
+  </data>
+  <data name="OM_ResultSavedWithoutDetectedApp" xml:space="preserve">
+    <value>偏好已保存，但暂未检测到 {0}，实际打开时可能失败。</value>
+  </data>
+  <data name="OM_ResultOpenedWithTarget" xml:space="preserve">
+    <value>已使用 {0} 打开 {1} 文件。</value>
+  </data>
+  <data name="OM_ResultOpenedWithSystem" xml:space="preserve">
+    <value>已按系统默认方式打开 {0} 文件。</value>
+  </data>
+  <data name="OM_ResultTargetNotFound" xml:space="preserve">
+    <value>未找到 {0}，请先确认软件已安装，再继续切换。</value>
+  </data>
+  <data name="OM_ResultFileNotFound" xml:space="preserve">
+    <value>未找到要打开的文件。</value>
+  </data>
+  <data name="OM_ResultLaunchFailed" xml:space="preserve">
+    <value>打开失败：{0}</value>
+  </data>
+  <data name="OM_ResultStorageUnavailable" xml:space="preserve">
+    <value>当前窗口暂时无法调用文件选择器。</value>
+  </data>
+  <data name="OM_ResultLocalFileOnly" xml:space="preserve">
+    <value>当前只支持本地文件测试打开。</value>
+  </data>
+  <data name="OM_ResultSystemDefaultRoutesToCwsTool" xml:space="preserve">
+    <value>系统默认入口当前也是 CWS Tool。为避免循环打开，请在此卡片选择 Microsoft Office 或 WPS Office。</value>
+  </data>
+  <data name="OM_ResultRegistered" xml:space="preserve">
+    <value>CWS Tool 已注册为系统候选打开程序。</value>
+  </data>
+  <data name="OM_ResultRegisteredAndOpenedSettings" xml:space="preserve">
+    <value>已注册 CWS Tool，并打开 Windows 默认应用设置。请把相关扩展设为 CWS Tool。</value>
+  </data>
+  <data name="OM_ResultOpenedDefaultAppsSettings" xml:space="preserve">
+    <value>已打开 Windows 默认应用设置。</value>
+  </data>
+  <data name="OM_ResultExecutableNotFound" xml:space="preserve">
+    <value>未找到当前程序路径，暂时无法注册系统入口。</value>
+  </data>
+  <data name="OM_ResultSettingsLaunchFailed" xml:space="preserve">
+    <value>未能打开 Windows 默认应用设置，请手动进入系统设置继续操作。</value>
+  </data>
+  <data name="OM_ResultRegistrationFailed" xml:space="preserve">
+    <value>注册系统入口失败：{0}</value>
+  </data>
+  <data name="OM_ResultUnsupportedPlatform" xml:space="preserve">
+    <value>当前平台不支持此操作。</value>
+  </data>
   <data name="MW_NavCommentsTitle" xml:space="preserve">
     <value>批注增强</value>
   </data>
@@ -1717,6 +1867,18 @@
   </data>
   <data name="SV_HideToTrayAfterMinimizeDelayDescription" xml:space="preserve">
     <value>窗口不再保留在前台，仅保留后台进程，可从托盘重新打开</value>
+  </data>
+  <data name="SV_LaunchAtStartup" xml:space="preserve">
+    <value>开机自启动</value>
+  </data>
+  <data name="SV_LaunchAtStartupDescription" xml:space="preserve">
+    <value>登录 Windows 后以后台模式启动，保留轻量托盘进程，便于后续接管文件换起。</value>
+  </data>
+  <data name="SV_BehaviorLogging" xml:space="preserve">
+    <value>行为日志</value>
+  </data>
+  <data name="SV_BehaviorLoggingDescription" xml:space="preserve">
+    <value>默认关闭。开启后记录导航、设置变更、打开方式切换等行为到本地日志文件。</value>
   </data>
   <data name="TM_Open" xml:space="preserve">
     <value>打开</value>

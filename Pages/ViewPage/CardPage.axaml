@@ -151,7 +151,7 @@
       <fui:SettingCard
         Description="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[VP_SoundDescription]}"
         Header="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[VP_Volume]}"
-        IconSource="avares://Gallery/Assets/Icons/Setting.png">
+        IconSource="avares://CWSTool/Assets/Icons/Setting.png">
         <ToggleSwitch Content="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[VP_NoIconCardTitleSwc]}"/>
       </fui:SettingCard>
     </ui:CodeCard>

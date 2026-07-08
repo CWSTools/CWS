@@ -31,7 +31,7 @@
           VerticalAlignment="Top"
           CornerRadius="{Binding AvatarRadius}"
           IsCircular="{Binding AvatarIsCircular}"
-          Source="avares://Gallery/Assets/Images/na.jpg"/>
+          Source="avares://CWSTool/Assets/Images/na.jpg"/>
         <fui:Avatar
           Grid.Column="1"
           Width="{Binding AvatarWidth}"

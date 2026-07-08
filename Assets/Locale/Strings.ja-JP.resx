@@ -1315,7 +1315,7 @@
     <value>現在のプロジェクトをビルド</value>
   </data>
   <data name="MT_BuildStartupProject" xml:space="preserve">
-    <value>スタートアッププロジェクトをビルド: Gallery</value>
+    <value>スタートアッププロジェクトをビルド: CWS Tool</value>
   </data>
   <data name="MT_AdvancedBuild" xml:space="preserve">
     <value>詳細ビルド操作</value>
@@ -1327,16 +1327,16 @@
     <value>実行(_U)</value>
   </data>
   <data name="MT_RerunProject" xml:space="preserve">
-    <value>'.NETプロジェクト: Gallery'を再実行</value>
+    <value>'.NETプロジェクト: CWS Tool'を再実行</value>
   </data>
   <data name="MT_DebugGallery" xml:space="preserve">
-    <value>'Gallery'をデバッグ</value>
+    <value>'CWS Tool'をデバッグ</value>
   </data>
   <data name="MT_RunWithProfiler" xml:space="preserve">
     <value>プロファイラーで実行</value>
   </data>
   <data name="MT_AnalyzeGallery" xml:space="preserve">
-    <value>'Gallery'を分析(タイムライン)</value>
+    <value>'CWS Tool'を分析(タイムライン)</value>
   </data>
   <data name="MT_AttachToProcess" xml:space="preserve">
     <value>プロセスにアタッチ</value>
@@ -1563,7 +1563,7 @@
     <value>オプションを選択してください</value>
   </data>
   <data name="MV_Title" xml:space="preserve">
-    <value>Avalonia Fluent UI Gallery</value>
+    <value>CWS Tool</value>
   </data>
   <data name="FluentIcon" xml:space="preserve">
     <value>流暢なアイコンライブラリ</value>
@@ -1685,6 +1685,156 @@
   <data name="MW_NavOpenMethodSubtitle" xml:space="preserve">
     <value>Office / WPS の既定アプリを切り替え</value>
   </data>
+  <data name="OM_Title" xml:space="preserve">
+    <value>文書最適化</value>
+  </data>
+  <data name="OM_PageDescription" xml:space="preserve">
+    <value>まずは推奨する開き方を整理し、その後で本当のシステム連携に接続できるようにします。</value>
+  </data>
+  <data name="OM_SectionTitle" xml:space="preserve">
+    <value>ファイル関連付け</value>
+  </data>
+  <data name="OM_SectionDescription" xml:space="preserve">
+    <value>各形式の開き方を切り替えます</value>
+  </data>
+  <data name="OM_ComboLabel" xml:space="preserve">
+    <value>開き方を選択</value>
+  </data>
+  <data name="OM_CurrentTargetLabel" xml:space="preserve">
+    <value>現在の適用先</value>
+  </data>
+  <data name="OM_RefreshCurrentButton" xml:space="preserve">
+    <value>現在の既定値を更新</value>
+  </data>
+  <data name="OM_Office" xml:space="preserve">
+    <value>Microsoft Office</value>
+  </data>
+  <data name="OM_Wps" xml:space="preserve">
+    <value>WPS Office</value>
+  </data>
+  <data name="OM_System" xml:space="preserve">
+    <value>システム既定</value>
+  </data>
+  <data name="OM_Mixed" xml:space="preserve">
+    <value>混在</value>
+  </data>
+  <data name="OM_Unknown" xml:space="preserve">
+    <value>未判定</value>
+  </data>
+  <data name="OM_PowerPoint" xml:space="preserve">
+    <value>PPT 切り替え</value>
+  </data>
+  <data name="OM_PowerPointDescription" xml:space="preserve">
+    <value>PowerPoint ファイルを Microsoft PowerPoint と WPS プレゼンのどちらで開くか選びます。</value>
+  </data>
+  <data name="OM_Word" xml:space="preserve">
+    <value>Word 切り替え</value>
+  </data>
+  <data name="OM_WordDescription" xml:space="preserve">
+    <value>Word ファイルを Microsoft Word と WPS 文字のどちらで開くか選びます。</value>
+  </data>
+  <data name="OM_Excel" xml:space="preserve">
+    <value>Excel 切り替え</value>
+  </data>
+  <data name="OM_ExcelDescription" xml:space="preserve">
+    <value>Excel ファイルを Microsoft Excel と WPS 表計算のどちらで開くか選びます。</value>
+  </data>
+  <data name="OM_Pdf" xml:space="preserve">
+    <value>PDF 切り替え</value>
+  </data>
+  <data name="OM_PdfDescription" xml:space="preserve">
+    <value>PDF 文書に優先するアプリを選びます。</value>
+  </data>
+  <data name="OM_ConfirmDialogTitle" xml:space="preserve">
+    <value>開き方の変更を確認</value>
+  </data>
+  <data name="OM_ConfirmDialogDescription" xml:space="preserve">
+    <value>この変更は現在のルール案を更新します。確認後に新しい設定として反映されます。</value>
+  </data>
+  <data name="OM_ConfirmChangeMessage" xml:space="preserve">
+    <value>{0} を「{1}」から「{2}」へ変更します。</value>
+  </data>
+  <data name="OM_ConfirmApplyButton" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="OM_ConfirmCancelButton" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="OM_TestOpenButton" xml:space="preserve">
+    <value>ファイルで確認</value>
+  </data>
+  <data name="OM_RegisterSystemEntryButton" xml:space="preserve">
+    <value>システム入口に設定</value>
+  </data>
+  <data name="OM_SystemEntryStatusLabel" xml:space="preserve">
+    <value>システム入口の状態</value>
+  </data>
+  <data name="OM_SystemEntryStatusRegistered" xml:space="preserve">
+    <value>CWS Tool は Windows の候補アプリとして登録済みです。既定アプリでは {0}/{1} 個の拡張子が CWS Tool を指しています。</value>
+  </data>
+  <data name="OM_SystemEntryStatusNotRegistered" xml:space="preserve">
+    <value>CWS Tool はまだ Windows の候補アプリとして登録されていません。ボタンを押してから、既定アプリで関連拡張子を CWS Tool に設定してください。</value>
+  </data>
+  <data name="OM_SelectedApp" xml:space="preserve">
+    <value>選択したアプリ</value>
+  </data>
+  <data name="OM_ResultSaved" xml:space="preserve">
+    <value>開き方の設定を保存しました。</value>
+  </data>
+  <data name="OM_ResultSavedWithTarget" xml:space="preserve">
+    <value>保存しました。今後 CWS Tool から {1} を開くときは {0} を優先します。</value>
+  </data>
+  <data name="OM_ResultSavedToSystem" xml:space="preserve">
+    <value>保存しました。今後もシステム既定のアプリで開きます。</value>
+  </data>
+  <data name="OM_ResultSavedWithoutDetectedApp" xml:space="preserve">
+    <value>設定は保存しましたが、{0} が見つからないため実際の起動は失敗する可能性があります。</value>
+  </data>
+  <data name="OM_ResultOpenedWithTarget" xml:space="preserve">
+    <value>{1} ファイルを {0} で開きました。</value>
+  </data>
+  <data name="OM_ResultOpenedWithSystem" xml:space="preserve">
+    <value>{0} ファイルをシステム既定のアプリで開きました。</value>
+  </data>
+  <data name="OM_ResultTargetNotFound" xml:space="preserve">
+    <value>{0} が見つかりません。インストール済みか確認してから切り替えてください。</value>
+  </data>
+  <data name="OM_ResultFileNotFound" xml:space="preserve">
+    <value>選択したファイルが見つかりません。</value>
+  </data>
+  <data name="OM_ResultLaunchFailed" xml:space="preserve">
+    <value>起動に失敗しました: {0}</value>
+  </data>
+  <data name="OM_ResultStorageUnavailable" xml:space="preserve">
+    <value>現在の画面ではファイル選択を呼び出せません。</value>
+  </data>
+  <data name="OM_ResultLocalFileOnly" xml:space="preserve">
+    <value>この確認フローではローカルファイルのみ対応しています。</value>
+  </data>
+  <data name="OM_ResultSystemDefaultRoutesToCwsTool" xml:space="preserve">
+    <value>システム既定の入口が現在 CWS Tool です。起動ループを避けるため、このカードでは Microsoft Office または WPS Office を選択してください。</value>
+  </data>
+  <data name="OM_ResultRegistered" xml:space="preserve">
+    <value>CWS Tool を Windows の候補アプリとして登録しました。</value>
+  </data>
+  <data name="OM_ResultRegisteredAndOpenedSettings" xml:space="preserve">
+    <value>CWS Tool を登録し、Windows の既定アプリ設定を開きました。関連拡張子を CWS Tool に設定してください。</value>
+  </data>
+  <data name="OM_ResultOpenedDefaultAppsSettings" xml:space="preserve">
+    <value>Windows の既定アプリ設定を開きました。</value>
+  </data>
+  <data name="OM_ResultExecutableNotFound" xml:space="preserve">
+    <value>現在の実行ファイルのパスが見つからないため、システム入口を登録できません。</value>
+  </data>
+  <data name="OM_ResultSettingsLaunchFailed" xml:space="preserve">
+    <value>Windows の既定アプリ設定を開けませんでした。手動で Windows 設定を開いてください。</value>
+  </data>
+  <data name="OM_ResultRegistrationFailed" xml:space="preserve">
+    <value>システム入口の登録に失敗しました: {0}</value>
+  </data>
+  <data name="OM_ResultUnsupportedPlatform" xml:space="preserve">
+    <value>この操作は現在のプラットフォームでは利用できません。</value>
+  </data>
   <data name="MW_NavCommentsTitle" xml:space="preserve">
     <value>コメント強化</value>
   </data>
@@ -1717,6 +1867,18 @@
   </data>
   <data name="SV_HideToTrayAfterMinimizeDelayDescription" xml:space="preserve">
     <value>前面ウィンドウを非表示にし、バックグラウンドのトレイプロセスだけを残します</value>
+  </data>
+  <data name="SV_LaunchAtStartup" xml:space="preserve">
+    <value>Windows 起動時に開始</value>
+  </data>
+  <data name="SV_LaunchAtStartupDescription" xml:space="preserve">
+    <value>Windows サインイン後に軽量なバックグラウンドモードで起動し、後続のファイル起動振り分けに備えます。</value>
+  </data>
+  <data name="SV_BehaviorLogging" xml:space="preserve">
+    <value>操作ログ</value>
+  </data>
+  <data name="SV_BehaviorLoggingDescription" xml:space="preserve">
+    <value>既定ではオフです。オンにすると、ナビゲーション、設定変更、開き方切り替えなどの操作をローカルログに記録します。</value>
   </data>
   <data name="TM_Open" xml:space="preserve">
     <value>開く</value>

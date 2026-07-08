@@ -101,7 +101,7 @@
               RowDefinitions="*, Auto, Auto, Auto">
               <Image
                 Grid.Row="0"
-                Source="avares://Gallery/Assets/Images/mc.jpg"
+                Source="avares://CWSTool/Assets/Images/mc.jpg"
                 Stretch="UniformToFill"/>
               <TextBlock
                 Grid.Row="1"

@@ -36,7 +36,7 @@ public partial class CommandBarViewPage : ViewBase
         base.OnAttachedToVisualTree(e);
         if (_bitmap == null)
         {
-            using var stream = AssetLoader.Open(new Uri("avares://Gallery/Assets/Images/0.jpg"));
+            using var stream = AssetLoader.Open(new Uri("avares://CWSTool/Assets/Images/0.jpg"));
             _bitmap = Bitmap.DecodeToWidth(stream, 800);
             Image.Source = _bitmap;
         }

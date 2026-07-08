@@ -56,6 +56,7 @@ public partial class MainWindowViewModel : ViewModelBase
             Console.WriteLine("------------------------------------------------------------");
             Console.WriteLine($"Navigation Item Changed, ItemName: {item.Tag}");
             Console.WriteLine("------------------------------------------------------------");
+            AppLoggerService.Info("navigation", $"Navigation item changed to {item.Tag}.");
         }
     }
 
@@ -76,6 +77,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
         _viewModelFactories = new Dictionary<string, Func<ViewModelBase>>
         {
+            { "OpenMethod", () => new OpenMethodViewModel(config) },
             { "Icons", () => new IconsViewModel() },
             
             { "BasicInput", () => new BasicInputViewModel() },
@@ -190,6 +192,19 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
 
+    public OpenMethodViewModel OpenMethodViewModel
+    {
+        get
+        {
+            if (!_viewModels.TryGetValue("OpenMethod", out var vm))
+            {
+                vm = new OpenMethodViewModel(_config);
+                _viewModels["OpenMethod"] = vm;
+            }
+            return (OpenMethodViewModel)vm;
+        }
+    }
+
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(BorderWidth))]
     private int _selectedBorderWidthItem = 2;
@@ -236,6 +251,7 @@ public partial class MainWindowViewModel : ViewModelBase
                 _history.Add(currentPageKey);
                 Console.WriteLine($"Load To History: {currentPageKey}");
                 Console.WriteLine("------------------------------------------------------------");
+                AppLoggerService.Info("navigation", $"Added page to history: {currentPageKey}.");
             }
         }
 
@@ -245,6 +261,7 @@ public partial class MainWindowViewModel : ViewModelBase
 #if DEBUG
         Debug.WriteLine($"Toggle Page To: {target}");
 #endif
+        AppLoggerService.Info("navigation", $"Switched current page to {target.Title}.");
     }
 
     [RelayCommand(CanExecute = nameof(CanGoBack))]
@@ -254,6 +271,7 @@ public partial class MainWindowViewModel : ViewModelBase
             return;
 
         Console.WriteLine("Go Back");
+        AppLoggerService.Info("navigation", "Go back triggered.");
 
         var last = _history[^1];
         _history.RemoveAt(_history.Count - 1);
@@ -263,6 +281,7 @@ public partial class MainWindowViewModel : ViewModelBase
             CurrentViewModel = view; 
             
             Console.WriteLine($"Back, Tag: {last}, View: {view.Title}, Trigger Jump To ControlMessage");
+            AppLoggerService.Info("navigation", $"Returned to history page {last} ({view.Title}).");
         }
 
         WeakReferenceMessenger.Default.Send(new JumpToControlMessage(last, null));

@@ -39,7 +39,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 RenderOptions.BitmapInterpolationMode="HighQuality"
-                Source="avares://Gallery/Assets/Images/avater.png"
+                Source="avares://CWSTool/Assets/Images/avater.png"
                 Stretch="Uniform"/>
               <TextBlock
                 Grid.Row="0"

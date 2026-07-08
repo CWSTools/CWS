@@ -58,12 +58,12 @@ public partial class CarouselViewPageViewModel : ViewModelBase
 
         FlipViewItems = new ObservableCollection<string>
         {
-            "avares://Gallery/Assets/Images/mc.jpg",
-            "avares://Gallery/Assets/Images/1.jpg",
-            "avares://Gallery/Assets/Images/2.jpg",
-            "avares://Gallery/Assets/Images/3.jpg",
-            "avares://Gallery/Assets/Images/4.jpg",
-            "avares://Gallery/Assets/Images/bg.jpg"
+            "avares://CWSTool/Assets/Images/mc.jpg",
+            "avares://CWSTool/Assets/Images/1.jpg",
+            "avares://CWSTool/Assets/Images/2.jpg",
+            "avares://CWSTool/Assets/Images/3.jpg",
+            "avares://CWSTool/Assets/Images/4.jpg",
+            "avares://CWSTool/Assets/Images/bg.jpg"
         };
     }
 

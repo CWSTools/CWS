@@ -1315,7 +1315,7 @@
     <value>Build Current Project</value>
   </data>
   <data name="MT_BuildStartupProject" xml:space="preserve">
-    <value>Build Startup Project: Gallery</value>
+    <value>Build Startup Project: CWS Tool</value>
   </data>
   <data name="MT_AdvancedBuild" xml:space="preserve">
     <value>Advanced Build Operations</value>
@@ -1327,16 +1327,16 @@
     <value>Run(_U)</value>
   </data>
   <data name="MT_RerunProject" xml:space="preserve">
-    <value>Rerun '.NET Project: Gallery'</value>
+    <value>Rerun '.NET Project: CWS Tool'</value>
   </data>
   <data name="MT_DebugGallery" xml:space="preserve">
-    <value>Debug 'Gallery'</value>
+    <value>Debug 'CWS Tool'</value>
   </data>
   <data name="MT_RunWithProfiler" xml:space="preserve">
     <value>Run with Profiler</value>
   </data>
   <data name="MT_AnalyzeGallery" xml:space="preserve">
-    <value>Analyze 'Gallery' (Timeline)</value>
+    <value>Analyze 'CWS Tool' (Timeline)</value>
   </data>
   <data name="MT_AttachToProcess" xml:space="preserve">
     <value>Attach to Process</value>
@@ -1563,7 +1563,7 @@
     <value>Please select your option</value>
   </data>
   <data name="MV_Title" xml:space="preserve">
-    <value>Avalonia Fluent UI Gallery</value>
+    <value>CWS Tool</value>
   </data>
   <data name="FluentIcon" xml:space="preserve">
     <value>Fluent icon library</value>
@@ -1685,6 +1685,156 @@
   <data name="MW_NavOpenMethodSubtitle" xml:space="preserve">
     <value>Switch Office / WPS default apps</value>
   </data>
+  <data name="OM_Title" xml:space="preserve">
+    <value>Document optimization</value>
+  </data>
+  <data name="OM_PageDescription" xml:space="preserve">
+    <value>Organize the preferred open method first, then connect it to real system-level switching next.</value>
+  </data>
+  <data name="OM_SectionTitle" xml:space="preserve">
+    <value>File associations</value>
+  </data>
+  <data name="OM_SectionDescription" xml:space="preserve">
+    <value>Switch the open method for each document format.</value>
+  </data>
+  <data name="OM_ComboLabel" xml:space="preserve">
+    <value>Select open method</value>
+  </data>
+  <data name="OM_CurrentTargetLabel" xml:space="preserve">
+    <value>Currently applied</value>
+  </data>
+  <data name="OM_RefreshCurrentButton" xml:space="preserve">
+    <value>Refresh current defaults</value>
+  </data>
+  <data name="OM_Office" xml:space="preserve">
+    <value>Microsoft Office</value>
+  </data>
+  <data name="OM_Wps" xml:space="preserve">
+    <value>WPS Office</value>
+  </data>
+  <data name="OM_System" xml:space="preserve">
+    <value>System default</value>
+  </data>
+  <data name="OM_Mixed" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="OM_Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="OM_PowerPoint" xml:space="preserve">
+    <value>PPT switch</value>
+  </data>
+  <data name="OM_PowerPointDescription" xml:space="preserve">
+    <value>Choose whether PowerPoint files should open with Microsoft PowerPoint or WPS Presentation.</value>
+  </data>
+  <data name="OM_Word" xml:space="preserve">
+    <value>Word switch</value>
+  </data>
+  <data name="OM_WordDescription" xml:space="preserve">
+    <value>Choose whether Word files should open with Microsoft Word or WPS Writer.</value>
+  </data>
+  <data name="OM_Excel" xml:space="preserve">
+    <value>Excel switch</value>
+  </data>
+  <data name="OM_ExcelDescription" xml:space="preserve">
+    <value>Choose whether Excel files should open with Microsoft Excel or WPS Spreadsheets.</value>
+  </data>
+  <data name="OM_Pdf" xml:space="preserve">
+    <value>PDF switch</value>
+  </data>
+  <data name="OM_PdfDescription" xml:space="preserve">
+    <value>Choose which app should be preferred for PDF documents.</value>
+  </data>
+  <data name="OM_ConfirmDialogTitle" xml:space="preserve">
+    <value>Confirm open method change</value>
+  </data>
+  <data name="OM_ConfirmDialogDescription" xml:space="preserve">
+    <value>This update will change the current rule draft. It only becomes effective after you confirm.</value>
+  </data>
+  <data name="OM_ConfirmChangeMessage" xml:space="preserve">
+    <value>{0} will change from "{1}" to "{2}".</value>
+  </data>
+  <data name="OM_ConfirmApplyButton" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="OM_ConfirmCancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="OM_TestOpenButton" xml:space="preserve">
+    <value>Test With File</value>
+  </data>
+  <data name="OM_RegisterSystemEntryButton" xml:space="preserve">
+    <value>Set System Entry</value>
+  </data>
+  <data name="OM_SystemEntryStatusLabel" xml:space="preserve">
+    <value>System entry status</value>
+  </data>
+  <data name="OM_SystemEntryStatusRegistered" xml:space="preserve">
+    <value>CWS Tool is registered as a Windows app candidate. {0}/{1} extensions currently point to CWS Tool in Default Apps.</value>
+  </data>
+  <data name="OM_SystemEntryStatusNotRegistered" xml:space="preserve">
+    <value>CWS Tool is not registered as a Windows app candidate yet. Use the button, then choose CWS Tool for the related extensions in Default Apps.</value>
+  </data>
+  <data name="OM_SelectedApp" xml:space="preserve">
+    <value>the selected app</value>
+  </data>
+  <data name="OM_ResultSaved" xml:space="preserve">
+    <value>Saved the open-method preference.</value>
+  </data>
+  <data name="OM_ResultSavedWithTarget" xml:space="preserve">
+    <value>Saved. CWS Tool will prefer {0} when opening {1} files.</value>
+  </data>
+  <data name="OM_ResultSavedToSystem" xml:space="preserve">
+    <value>Saved. CWS Tool will keep using the system default app.</value>
+  </data>
+  <data name="OM_ResultSavedWithoutDetectedApp" xml:space="preserve">
+    <value>Saved the preference, but {0} was not detected and opening may fail.</value>
+  </data>
+  <data name="OM_ResultOpenedWithTarget" xml:space="preserve">
+    <value>Opened the {1} file with {0}.</value>
+  </data>
+  <data name="OM_ResultOpenedWithSystem" xml:space="preserve">
+    <value>Opened the {0} file with the system default app.</value>
+  </data>
+  <data name="OM_ResultTargetNotFound" xml:space="preserve">
+    <value>Could not find {0}. Please make sure it is installed before switching.</value>
+  </data>
+  <data name="OM_ResultFileNotFound" xml:space="preserve">
+    <value>The selected file could not be found.</value>
+  </data>
+  <data name="OM_ResultLaunchFailed" xml:space="preserve">
+    <value>Open failed: {0}</value>
+  </data>
+  <data name="OM_ResultStorageUnavailable" xml:space="preserve">
+    <value>The file picker is not available in the current window.</value>
+  </data>
+  <data name="OM_ResultLocalFileOnly" xml:space="preserve">
+    <value>Only local files are supported in this test flow.</value>
+  </data>
+  <data name="OM_ResultSystemDefaultRoutesToCwsTool" xml:space="preserve">
+    <value>The system default entry is currently CWS Tool. Choose Microsoft Office or WPS Office on this card to avoid a launch loop.</value>
+  </data>
+  <data name="OM_ResultRegistered" xml:space="preserve">
+    <value>CWS Tool has been registered as a Windows app candidate.</value>
+  </data>
+  <data name="OM_ResultRegisteredAndOpenedSettings" xml:space="preserve">
+    <value>CWS Tool was registered and Windows Default Apps was opened. Set the related extensions to CWS Tool there.</value>
+  </data>
+  <data name="OM_ResultOpenedDefaultAppsSettings" xml:space="preserve">
+    <value>Opened Windows Default Apps settings.</value>
+  </data>
+  <data name="OM_ResultExecutableNotFound" xml:space="preserve">
+    <value>The current executable path was not found, so the system entry cannot be registered yet.</value>
+  </data>
+  <data name="OM_ResultSettingsLaunchFailed" xml:space="preserve">
+    <value>Could not open Windows Default Apps settings. Please open Windows Settings manually.</value>
+  </data>
+  <data name="OM_ResultRegistrationFailed" xml:space="preserve">
+    <value>Failed to register the system entry: {0}</value>
+  </data>
+  <data name="OM_ResultUnsupportedPlatform" xml:space="preserve">
+    <value>This operation is not supported on the current platform.</value>
+  </data>
   <data name="MW_NavCommentsTitle" xml:space="preserve">
     <value>Comment enhancement</value>
   </data>
@@ -1717,6 +1867,18 @@
   </data>
   <data name="SV_HideToTrayAfterMinimizeDelayDescription" xml:space="preserve">
     <value>Remove the window from the foreground and keep only the background tray process</value>
+  </data>
+  <data name="SV_LaunchAtStartup" xml:space="preserve">
+    <value>Launch at startup</value>
+  </data>
+  <data name="SV_LaunchAtStartupDescription" xml:space="preserve">
+    <value>Starts in lightweight background mode after Windows sign-in so file-open routing can be available quickly.</value>
+  </data>
+  <data name="SV_BehaviorLogging" xml:space="preserve">
+    <value>Behavior logging</value>
+  </data>
+  <data name="SV_BehaviorLoggingDescription" xml:space="preserve">
+    <value>Off by default. When enabled, navigation, settings changes, and open-method actions are written to a local log file.</value>
   </data>
   <data name="TM_Open" xml:space="preserve">
     <value>Open</value>

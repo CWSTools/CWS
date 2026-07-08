@@ -141,13 +141,6 @@
             SelectedItem="{Binding CurrentLanguage}"/>
         </fui:SettingCard>
 
-        <fui:SettingCard
-          Description="{Binding PinToTopDescription}"
-          Header="{Binding PinToTop}"
-          IsEnabled="False">
-          <ToggleSwitch IsChecked="False"/>
-        </fui:SettingCard>
-
         <fui:SettingCard Description="{Binding EnableBackgroundImage}" Header="{Binding BackgroundImage}">
           <ToggleSwitch IsChecked="{Binding IsEnabledBackgroundImage}"/>
         </fui:SettingCard>
@@ -171,6 +164,20 @@
             </fui:SettingsExpanderItem.Footer>
           </fui:SettingsExpanderItem>
         </fui:SettingsExpander>
+
+        <fui:SettingCard
+          Description="{Binding LaunchAtStartupDescription}"
+          Header="{Binding LaunchAtStartup}"
+          IconSource="{x:Static fi:FluentIcon.PowerButton}">
+          <ToggleSwitch IsChecked="{Binding IsLaunchAtStartupEnabled}"/>
+        </fui:SettingCard>
+
+        <fui:SettingCard
+          Description="{Binding BehaviorLoggingDescription}"
+          Header="{Binding BehaviorLogging}"
+          IconSource="{x:Static fi:FluentIcon.Info}">
+          <ToggleSwitch IsChecked="{Binding IsBehaviorLoggingEnabled}"/>
+        </fui:SettingCard>
 
       </StackPanel>
     </fui:SmoothScrollViewer>

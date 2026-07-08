@@ -165,8 +165,8 @@
         <ui:LinkCard
           Height="156"
           HorizontalAlignment="Stretch"
-          Background="{Binding GlassPanelBackground}"
-          BorderBrush="{Binding GlassPanelBorderBrush}"
+          Background="{Binding LinkPanelBackground}"
+          BorderBrush="{Binding LinkPanelBorderBrush}"
           Click="OnOpenAssociationsClicked"
           IconData="{x:Static fi:FluentIcon.Application}"
           Title="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_OpenAssociationTitle]}"
@@ -176,8 +176,8 @@
           Grid.Column="1"
           Height="156"
           HorizontalAlignment="Stretch"
-          Background="{Binding GlassPanelBackground}"
-          BorderBrush="{Binding GlassPanelBorderBrush}"
+          Background="{Binding LinkPanelBackground}"
+          BorderBrush="{Binding LinkPanelBorderBrush}"
           Click="OnOpenCommentsClicked"
           IconData="{x:Static fi:FluentIcon.Message}"
           Title="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_BetterCommentsTitle]}"
@@ -187,8 +187,8 @@
           Grid.Column="2"
           Height="156"
           HorizontalAlignment="Stretch"
-          Background="{Binding GlassPanelBackground}"
-          BorderBrush="{Binding GlassPanelBorderBrush}"
+          Background="{Binding LinkPanelBackground}"
+          BorderBrush="{Binding LinkPanelBorderBrush}"
           Click="OnOpenBatchToolsClicked"
           IconData="{x:Static fi:FluentIcon.Send}"
           Title="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[HV_BatchDocumentToolsTitle]}"
@@ -196,7 +196,7 @@
       </Grid>
 
       <Grid ColumnDefinitions="*,*,*" ColumnSpacing="16">
-        <ui:Card Padding="22" Background="{Binding GlassPanelBackground}" BorderBrush="{Binding GlassPanelBorderBrush}" BorderThickness="1">
+        <ui:Card Padding="22" Background="{Binding FeaturePanelBackground}" BorderBrush="{Binding FeaturePanelBorderBrush}" BorderThickness="1">
           <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
             <Border Classes="IconTile" Background="{Binding IconTileBackground}">
               <PathIcon Classes="FeatureIcon" Data="{x:Static fi:FluentIcon.Application}"/>
@@ -211,7 +211,7 @@
           </Grid>
         </ui:Card>
 
-        <ui:Card Grid.Column="1" Padding="22" Background="{Binding GlassPanelBackground}" BorderBrush="{Binding GlassPanelBorderBrush}" BorderThickness="1">
+        <ui:Card Grid.Column="1" Padding="22" Background="{Binding FeaturePanelBackground}" BorderBrush="{Binding FeaturePanelBorderBrush}" BorderThickness="1">
           <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
             <Border Classes="IconTile" Background="{Binding IconTileBackground}">
               <PathIcon Classes="FeatureIcon" Data="{x:Static fi:FluentIcon.Message}"/>
@@ -226,7 +226,7 @@
           </Grid>
         </ui:Card>
 
-        <ui:Card Grid.Column="2" Padding="22" Background="{Binding GlassPanelBackground}" BorderBrush="{Binding GlassPanelBorderBrush}" BorderThickness="1">
+        <ui:Card Grid.Column="2" Padding="22" Background="{Binding FeaturePanelBackground}" BorderBrush="{Binding FeaturePanelBorderBrush}" BorderThickness="1">
           <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
             <Border Classes="IconTile" Background="{Binding IconTileBackground}">
               <PathIcon Classes="FeatureIcon" Data="{x:Static fi:FluentIcon.Document}"/>

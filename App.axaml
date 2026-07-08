@@ -9,7 +9,7 @@
 
   <TrayIcon.Icons>
     <TrayIcons>
-      <TrayIcon Icon="/Assets/app.ico" ToolTipText="Avalonia Tray Icon">
+      <TrayIcon Clicked="OnShowClicked" Icon="/Assets/app.ico" ToolTipText="CWS Tool">
         <TrayIcon.Menu>
           <NativeMenu>
             <NativeMenuItem Click="OnShowClicked" Header="{Binding Source={x:Static locale:LocalizationService.Instance}, Path=[TM_Open]}"/>
@@ -24,44 +24,44 @@
 
   <Application.Resources>
     <ResourceDictionary>
-      <!-- <FontFamily x:Key="DefaultFontFamily">avares://Gallery/Assets/Fonts/ZenMaruGothic-Medium.ttf#Zen Maru Gothic Medium</FontFamily> -->
-      <!-- <FontFamily x:Key="DefaultFontFamily">avares://Gallery/Assets/Fonts/JetBrainsMonoNerdFont-Regular.ttf#JetBrainsMono NF Regular</FontFamily> -->
-      <!-- <FontFamily x:Key="DefaultFontFamily">avares://Gallery/Assets/Fonts/#</FontFamily> -->
+      <!-- <FontFamily x:Key="DefaultFontFamily">avares://CWSTool/Assets/Fonts/ZenMaruGothic-Medium.ttf#Zen Maru Gothic Medium</FontFamily> -->
+      <!-- <FontFamily x:Key="DefaultFontFamily">avares://CWSTool/Assets/Fonts/JetBrainsMonoNerdFont-Regular.ttf#JetBrainsMono NF Regular</FontFamily> -->
+      <!-- <FontFamily x:Key="DefaultFontFamily">avares://CWSTool/Assets/Fonts/#</FontFamily> -->
       <ResourceDictionary.MergedDictionaries>
 
         <!--  Card  -->
-        <ResourceInclude Source="avares://Gallery/Controls/Card/CodeCard.axaml"/>
-        <ResourceInclude Source="avares://Gallery/Controls/Card/Card.axaml"/>
-        <ResourceInclude Source="avares://Gallery/Controls/Card/ToolboxStatCard.axaml"/>
+        <ResourceInclude Source="avares://CWSTool/Controls/Card/CodeCard.axaml"/>
+        <ResourceInclude Source="avares://CWSTool/Controls/Card/Card.axaml"/>
+        <ResourceInclude Source="avares://CWSTool/Controls/Card/ToolboxStatCard.axaml"/>
 
         <!--  Navigation  -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/Navigation/NavigationView.axaml"/> -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/Navigation/NavigationViewItem.axaml"/> -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/Navigation/NavigationSeparator.axaml"/> -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/Navigation/NavigationButton.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/Navigation/NavigationView.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/Navigation/NavigationViewItem.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/Navigation/NavigationSeparator.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/Navigation/NavigationButton.axaml"/> -->
 
         <!--  Button  -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/Button/ToolButton.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/Button/ToolButton.axaml"/> -->
         <!-- <ResourceInclude Source="avares://Demo/Controls/Scroll/ScrollViewer.axaml"/> -->
 
         <!--  Menu  -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/Menu/ContextMenu.axaml"/> -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/Menu/MenuItem.axaml"/> -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/Menu/MenuItemIcon.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/Menu/ContextMenu.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/Menu/MenuItem.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/Menu/MenuItemIcon.axaml"/> -->
 
-        <ResourceInclude Source="avares://Gallery/Controls/View/ViewBase.axaml"/>
+        <ResourceInclude Source="avares://CWSTool/Controls/View/ViewBase.axaml"/>
 
         <!--  ComboBox  -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/ComboBox/ComboBox.axaml" /> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/ComboBox/ComboBox.axaml" /> -->
 
         <!--  SmoothScrollViewer  -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/ScrollViewer/SmoothScrollViewer.axaml"></ResourceInclude> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/ScrollViewer/SmoothScrollViewer.axaml"></ResourceInclude> -->
 
         <!--  AnimatedWrapPanel  -->
-        <!-- <ResourceInclude Source="avares://Gallery/Controls/WrapPanel/AnimatedWrapPanel.axaml"/> -->
+        <!-- <ResourceInclude Source="avares://CWSTool/Controls/WrapPanel/AnimatedWrapPanel.axaml"/> -->
 
-        <ResourceInclude Source="avares://Gallery/Controls/Panel/ButtonItemsPanel.axaml"/>
-        <ResourceInclude Source="avares://Gallery/Controls/Card/LinkCard.axaml"/>
+        <ResourceInclude Source="avares://CWSTool/Controls/Panel/ButtonItemsPanel.axaml"/>
+        <ResourceInclude Source="avares://CWSTool/Controls/Card/LinkCard.axaml"/>
 
       </ResourceDictionary.MergedDictionaries>
       <ResourceDictionary.ThemeDictionaries>

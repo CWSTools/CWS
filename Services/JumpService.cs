@@ -17,6 +17,7 @@ public class JumpService
 
     public static void InvokeJumpEvent(JumpModel model)
     {
+        AppLoggerService.Info("jump", $"Invoke jump event. Page={model.Page}, Control={model.ControlName}");
         OnJumpToControl?.Invoke(null, model);
     }
 
@@ -38,5 +39,6 @@ public class JumpService
 #if DEBUG
         System.Diagnostics.Debug.WriteLine($"JumpService.GotoFromButton => Page: {page}, Name: {name}");
 #endif
+        AppLoggerService.Info("jump", $"GotoControl from button. Page={page}, Name={name}");
     }
 }

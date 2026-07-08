@@ -18,6 +18,7 @@ namespace Gallery.ViewModels;
 public partial class SettingsViewModel : ViewModelBase
 {
     public override string Title => LocalizationService.Instance.GetString("Settings");
+    private bool _isLoadingSetting;
     
     public SettingsViewModel(AppConfig? config)
     {
@@ -43,8 +44,6 @@ public partial class SettingsViewModel : ViewModelBase
         OnPropertyChanged(nameof(CustomColor));
         OnPropertyChanged(nameof(DefaultColor));
         OnPropertyChanged(nameof(SelectColor));
-        OnPropertyChanged(nameof(PinToTop));
-        OnPropertyChanged(nameof(PinToTopDescription));
         OnPropertyChanged(nameof(Language));
         OnPropertyChanged(nameof(LanguageDescription));
         OnPropertyChanged(nameof(BackgroundImage));
@@ -54,6 +53,10 @@ public partial class SettingsViewModel : ViewModelBase
         OnPropertyChanged(nameof(ReleaseResourcesOnMinimizeDescription));
         OnPropertyChanged(nameof(HideToTrayAfterMinimizeDelay));
         OnPropertyChanged(nameof(HideToTrayAfterMinimizeDelayDescription));
+        OnPropertyChanged(nameof(LaunchAtStartup));
+        OnPropertyChanged(nameof(LaunchAtStartupDescription));
+        OnPropertyChanged(nameof(BehaviorLogging));
+        OnPropertyChanged(nameof(BehaviorLoggingDescription));
         OnPropertyChanged(nameof(Light));
         OnPropertyChanged(nameof(Dark));
         OnPropertyChanged(nameof(FollowSystem));
@@ -63,37 +66,49 @@ public partial class SettingsViewModel : ViewModelBase
     {
         if (config != null)
         {
-            CurrentLanguage =  config.Language;
-            ToggleTheme(config.Theme);
-            
-            if (config.IsCustomAccentColor)
+            _isLoadingSetting = true;
+            try
             {
-                IsCustomColor = true;
-                IsDefaultAccentColor = false;
-                SelectedAccentColor = Color.Parse(config.CustomAccentColor);
+                CurrentLanguage =  config.Language;
+                ToggleTheme(config.Theme);
+                
+                if (config.IsCustomAccentColor)
+                {
+                    IsCustomColor = true;
+                    IsDefaultAccentColor = false;
+                    SelectedAccentColor = Color.Parse(config.CustomAccentColor);
+                }
+                
+                string effect = config.WindowEffect;
+                if (effect == "Mica" && IsWindows11)
+                {
+                    EnabledWindowEffect(effect);
+                }
+                else if  (effect == "Acrylic")
+                {
+                    EnabledWindowEffect(effect);
+                }
+                else
+                {
+                    CurrentEffect = "Null";
+                    IsEnabledWindowEffect = false;
+                }
+                
+                
+                IsEnabledBackgroundImage = config.IsEnabledBackgroundImage;
+                IsReleaseResourcesOnMinimize = config.ReleaseResourcesOnMinimize;
+                IsHideToTrayAfterMinimizeDelay = config.HideToTrayAfterMinimizeDelay;
+                IsBehaviorLoggingEnabled = config.IsBehaviorLoggingEnabled;
+                IsLaunchAtStartupEnabled = OperatingSystem.IsWindows()
+                    ? StartupService.IsEnabled()
+                    : config.IsLaunchAtStartupEnabled;
+                
+                Console.WriteLine("Loaded Settings");
             }
-            
-            string effect = config.WindowEffect;
-            if (effect == "Mica" && IsWindows11)
+            finally
             {
-                EnabledWindowEffect(effect);
+                _isLoadingSetting = false;
             }
-            else if  (effect == "Acrylic")
-            {
-                EnabledWindowEffect(effect);
-            }
-            else
-            {
-                CurrentEffect = "Null";
-                IsEnabledWindowEffect = false;
-            }
-            
-            
-            IsEnabledBackgroundImage = config.IsEnabledBackgroundImage;
-            IsReleaseResourcesOnMinimize = config.ReleaseResourcesOnMinimize;
-            IsHideToTrayAfterMinimizeDelay = config.HideToTrayAfterMinimizeDelay;
-            
-            Console.WriteLine("Loaded Settings");
         }
     }
 
@@ -159,8 +174,6 @@ public partial class SettingsViewModel : ViewModelBase
     public string CustomColor => LocalizationService.Instance.GetString("SV_CustomColor");
     public string DefaultColor => LocalizationService.Instance.GetString("SV_DefaultColor");
     public string SelectColor => LocalizationService.Instance.GetString("SV_SelectColor");
-    public string PinToTop => LocalizationService.Instance.GetString("SV_PinToTop");
-    public string PinToTopDescription => LocalizationService.Instance.GetString("SV_PinToTopDescription");
     public string Language => LocalizationService.Instance.GetString("SV_Language");
     public string LanguageDescription => LocalizationService.Instance.GetString("SV_LanguageDescription");
     public string BackgroundImage => LocalizationService.Instance.GetString("SV_BackgroundImage");
@@ -170,6 +183,10 @@ public partial class SettingsViewModel : ViewModelBase
     public string ReleaseResourcesOnMinimizeDescription => LocalizationService.Instance.GetString("SV_ReleaseResourcesOnMinimizeDescription");
     public string HideToTrayAfterMinimizeDelay => LocalizationService.Instance.GetString("SV_HideToTrayAfterMinimizeDelay");
     public string HideToTrayAfterMinimizeDelayDescription => LocalizationService.Instance.GetString("SV_HideToTrayAfterMinimizeDelayDescription");
+    public string LaunchAtStartup => LocalizationService.Instance.GetString("SV_LaunchAtStartup");
+    public string LaunchAtStartupDescription => LocalizationService.Instance.GetString("SV_LaunchAtStartupDescription");
+    public string BehaviorLogging => LocalizationService.Instance.GetString("SV_BehaviorLogging");
+    public string BehaviorLoggingDescription => LocalizationService.Instance.GetString("SV_BehaviorLoggingDescription");
     public string Light => LocalizationService.Instance.GetString("LV_Light");
     public string Dark => LocalizationService.Instance.GetString("LV_Dark");
     public string FollowSystem => LocalizationService.Instance.GetString("LV_FollowSystem");
@@ -230,6 +247,12 @@ public partial class SettingsViewModel : ViewModelBase
     [ObservableProperty]
     private bool _isHideToTrayAfterMinimizeDelay = true;
 
+    [ObservableProperty]
+    private bool _isBehaviorLoggingEnabled;
+
+    [ObservableProperty]
+    private bool _isLaunchAtStartupEnabled;
+
     partial void OnIsEnabledBackgroundImageChanged(bool value)
     {
         if (value)
@@ -239,7 +262,31 @@ public partial class SettingsViewModel : ViewModelBase
             OnPropertyChanged(nameof(IsMicaRadioChecked));
             OnPropertyChanged(nameof(IsAcrylicRadioChecked));
         }
+        if (_isLoadingSetting)
+        {
+            return;
+        }
+
         WeakReferenceMessenger.Default.Send(new EnabledBackgroundImageMessage(value));
+    }
+
+    partial void OnIsBehaviorLoggingEnabledChanged(bool value)
+    {
+        AppLoggerService.SetEnabled(value);
+        RuntimeConfigService.Update(config => config.IsBehaviorLoggingEnabled = value);
+        AppLoggerService.Info("settings", $"Behavior logging toggled to {value}.");
+    }
+
+    partial void OnIsLaunchAtStartupEnabledChanged(bool value)
+    {
+        if (!OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        StartupService.SetEnabled(value);
+        RuntimeConfigService.Update(config => config.IsLaunchAtStartupEnabled = value);
+        AppLoggerService.Info("settings", $"Launch at startup toggled to {value}.");
     }
 
     public override void Dispose()
