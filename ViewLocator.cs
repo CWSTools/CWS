@@ -22,6 +22,7 @@ public class ViewLocator : IDataTemplate
     {
         _factory[typeof(HomeViewModel)] = () => new HomeView();
         _factory[typeof(OpenMethodViewModel)] = () => new OpenMethodView();
+        _factory[typeof(PptSlideShowViewModel)] = () => new PptSlideShowView();
         
         _factory[typeof(IconsViewModel)] = () => new IconsView();
         _factory[typeof(FluentIconPageViewModel)] = () => new FluentIconPage();

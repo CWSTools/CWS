@@ -1,0 +1,468 @@
+{
+  "components": [
+    {
+      "id": "builtin.cursor",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.pen",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.quickColorPalette",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": true,
+                "conditionId": "isAnnotating"
+              }
+            ]
+          },
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.inkFreeze",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.clear",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.group",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [
+        {
+          "id": "builtin.eraser",
+          "instanceId": null,
+          "hidingRule": 0,
+          "showSeparateBorder": false,
+          "preventHideOnDragClick": false,
+          "settings": {},
+          "children": [],
+          "hidingRuleset": null,
+          "IsGroup": false
+        },
+        {
+          "id": "builtin.eraserByStrokes",
+          "instanceId": null,
+          "hidingRule": 0,
+          "showSeparateBorder": false,
+          "preventHideOnDragClick": false,
+          "settings": {},
+          "children": [],
+          "hidingRuleset": null,
+          "IsGroup": false
+        },
+        {
+          "id": "builtin.select",
+          "instanceId": null,
+          "hidingRule": 0,
+          "showSeparateBorder": false,
+          "preventHideOnDragClick": false,
+          "settings": {},
+          "children": [],
+          "hidingRuleset": null,
+          "IsGroup": false
+        },
+        {
+          "id": "builtin.shapeDraw",
+          "instanceId": null,
+          "hidingRule": 0,
+          "showSeparateBorder": false,
+          "preventHideOnDragClick": false,
+          "settings": {},
+          "children": [],
+          "hidingRuleset": null,
+          "IsGroup": false
+        },
+        {
+          "id": "builtin.undo",
+          "instanceId": null,
+          "hidingRule": 0,
+          "showSeparateBorder": false,
+          "preventHideOnDragClick": false,
+          "settings": {},
+          "children": [],
+          "hidingRuleset": null,
+          "IsGroup": false
+        },
+        {
+          "id": "builtin.redo",
+          "instanceId": null,
+          "hidingRule": 0,
+          "showSeparateBorder": false,
+          "preventHideOnDragClick": false,
+          "settings": {},
+          "children": [],
+          "hidingRuleset": null,
+          "IsGroup": false
+        },
+        {
+          "id": "builtin.cursorWithDel",
+          "instanceId": null,
+          "hidingRule": 0,
+          "showSeparateBorder": false,
+          "preventHideOnDragClick": false,
+          "settings": {},
+          "children": [],
+          "hidingRuleset": null,
+          "IsGroup": false
+        }
+      ],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": true,
+                "conditionId": "isAnnotating"
+              }
+            ]
+          },
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": true
+    },
+    {
+      "id": "builtin.separator",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.whiteboard",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.tools",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.fold",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": false,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": false,
+                "conditionId": "isContentCollapsedByUser"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.gesture",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": true,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": true,
+                "conditionId": "isAnnotating"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    },
+    {
+      "id": "builtin.exit",
+      "instanceId": null,
+      "hidingRule": 0,
+      "showSeparateBorder": true,
+      "preventHideOnDragClick": false,
+      "settings": {},
+      "children": [],
+      "hidingRuleset": {
+        "state": 0,
+        "mode": 0,
+        "isReversed": false,
+        "groups": [
+          {
+            "state": 0,
+            "mode": 1,
+            "isReversed": false,
+            "isEnabled": true,
+            "rules": [
+              {
+                "state": 0,
+                "isReversed": true,
+                "conditionId": "isPPTMode"
+              }
+            ]
+          }
+        ]
+      },
+      "IsGroup": false
+    }
+  ]
+}

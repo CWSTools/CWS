@@ -22,7 +22,7 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public string Home => LocalizationService.Instance.GetString("Home");
     public string Icon => LocalizationService.Instance.GetString("Icon");
-    public string BasicInput => LocalizationService.Instance.GetString("BasicInput");
+    public string BasicInput => LocalizationService.Instance.GetString("MW_NavCommentsTitle");
     public string DialogAndPopup => LocalizationService.Instance.GetString("DialogAndPopup");
     public string Layout => LocalizationService.Instance.GetString("Layout");
     public string Navigation => LocalizationService.Instance.GetString("Navigation");
@@ -80,7 +80,7 @@ public partial class MainWindowViewModel : ViewModelBase
             { "OpenMethod", () => new OpenMethodViewModel(config) },
             { "Icons", () => new IconsViewModel() },
             
-            { "BasicInput", () => new BasicInputViewModel() },
+            { "BasicInput", () => new BasicInputViewModel(config) },
             { "Button", () => new ButtonPageViewModel() },
             { "ComboBox", () => new ComboBoxPageViewModel() },
             { "Slider", () => new SlierPageViewModel() },

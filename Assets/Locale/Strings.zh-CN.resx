@@ -1835,6 +1835,84 @@
   <data name="OM_ResultUnsupportedPlatform" xml:space="preserve">
     <value>当前平台不支持此操作。</value>
   </data>
+  <data name="PPT_Title" xml:space="preserve">
+    <value>PPT 播放控制</value>
+  </data>
+  <data name="PPT_PageDescription" xml:space="preserve">
+    <value>连接正在运行的 PowerPoint 或 WPS 演示，使用 CWS 自己的界面控制放映、翻页和跳转。</value>
+  </data>
+  <data name="PPT_OpenButton" xml:space="preserve">
+    <value>打开 PPT</value>
+  </data>
+  <data name="PPT_RefreshButton" xml:space="preserve">
+    <value>刷新状态</value>
+  </data>
+  <data name="PPT_FloatingWindowButton" xml:space="preserve">
+    <value>打开悬浮窗</value>
+  </data>
+  <data name="PPT_StartButton" xml:space="preserve">
+    <value>开始放映</value>
+  </data>
+  <data name="PPT_EndButton" xml:space="preserve">
+    <value>结束放映</value>
+  </data>
+  <data name="PPT_PreviousButton" xml:space="preserve">
+    <value>上一页</value>
+  </data>
+  <data name="PPT_NextButton" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="PPT_GotoButton" xml:space="preserve">
+    <value>跳转</value>
+  </data>
+  <data name="PPT_TargetSlideLabel" xml:space="preserve">
+    <value>目标页码</value>
+  </data>
+  <data name="PPT_ConnectionStatusTitle" xml:space="preserve">
+    <value>连接状态</value>
+  </data>
+  <data name="PPT_CurrentDeckTitle" xml:space="preserve">
+    <value>当前演示文稿</value>
+  </data>
+  <data name="PPT_SlideCounterTitle" xml:space="preserve">
+    <value>当前页</value>
+  </data>
+  <data name="PPT_Connected" xml:space="preserve">
+    <value>已连接</value>
+  </data>
+  <data name="PPT_Disconnected" xml:space="preserve">
+    <value>未连接</value>
+  </data>
+  <data name="PPT_NoPresentation" xml:space="preserve">
+    <value>暂无演示文稿</value>
+  </data>
+  <data name="PPT_ResultOpenedWithTarget" xml:space="preserve">
+    <value>已使用 {0} 打开 PPT，稍后会自动连接。</value>
+  </data>
+  <data name="PPT_ResultOpenedWithSystem" xml:space="preserve">
+    <value>已按系统默认方式打开 PPT，稍后会自动连接。</value>
+  </data>
+  <data name="PPT_ResultStartRequested" xml:space="preserve">
+    <value>已请求开始放映。</value>
+  </data>
+  <data name="PPT_ResultEndRequested" xml:space="preserve">
+    <value>已请求结束放映。</value>
+  </data>
+  <data name="PPT_ResultNextRequested" xml:space="preserve">
+    <value>已切换到下一页。</value>
+  </data>
+  <data name="PPT_ResultPreviousRequested" xml:space="preserve">
+    <value>已切换到上一页。</value>
+  </data>
+  <data name="PPT_ResultGotoRequested" xml:space="preserve">
+    <value>已请求跳转到第 {0} 页。</value>
+  </data>
+  <data name="PPT_ResultCommandFailed" xml:space="preserve">
+    <value>命令发送失败，请确认 PowerPoint/WPS 正在运行并已进入放映。</value>
+  </data>
+  <data name="PPT_ResultStateFailed" xml:space="preserve">
+    <value>读取 PPT 状态失败：{0}</value>
+  </data>
   <data name="MW_NavCommentsTitle" xml:space="preserve">
     <value>批注增强</value>
   </data>
@@ -1915,5 +1993,74 @@
   </data>
   <data name="AV_UpdateCurrentVersion" xml:space="preserve">
     <value>当前版本：{0}</value>
+  </data>
+  <data name="SV_ICCCE_Settings" xml:space="preserve">
+    <value>ICCCE 功能</value>
+  </data>
+  <data name="SV_ICCCE_SettingsDescription" xml:space="preserve">
+    <value>启用从 ICCCE 移植并适配到 CWS 的批注、放映与白板能力。</value>
+  </data>
+  <data name="SV_ICCCE_FeatureEnabled" xml:space="preserve">
+    <value>启用 ICCCE 功能层</value>
+  </data>
+  <data name="SV_ICCCE_PptSettings" xml:space="preserve">
+    <value>PPT 放映</value>
+  </data>
+  <data name="SV_ICCCE_PptSettingsDescription" xml:space="preserve">
+    <value>控制 PowerPoint/WPS 连接、悬浮窗、预览与翻页响应。</value>
+  </data>
+  <data name="SV_ICCCE_PptSupportPowerPoint" xml:space="preserve">
+    <value>支持 PowerPoint 放映控制</value>
+  </data>
+  <data name="SV_ICCCE_PptSupportWps" xml:space="preserve">
+    <value>支持 WPS 演示</value>
+  </data>
+  <data name="SV_ICCCE_PptAutoFloatingWindow" xml:space="preserve">
+    <value>检测到 PPT 进程时自动弹出悬浮窗</value>
+  </data>
+  <data name="SV_ICCCE_PptKeepTopmost" xml:space="preserve">
+    <value>放映时保持悬浮窗置顶</value>
+  </data>
+  <data name="SV_ICCCE_PptEnhancedPreview" xml:space="preserve">
+    <value>启用页码按钮缩略图预览</value>
+  </data>
+  <data name="SV_ICCCE_PptPreloadPreview" xml:space="preserve">
+    <value>连接后预加载缩略图</value>
+  </data>
+  <data name="SV_ICCCE_PptLongPressPageTurn" xml:space="preserve">
+    <value>长按上一页/下一页连续翻页</value>
+  </data>
+  <data name="SV_ICCCE_PptOptimisticPageNumber" xml:space="preserve">
+    <value>点击翻页后先更新页码显示</value>
+  </data>
+  <data name="SV_ICCCE_PptOptimisticPageHold" xml:space="preserve">
+    <value>页码预更新保持时间（毫秒）</value>
+  </data>
+  <data name="SV_ICCCE_AnnotationSettings" xml:space="preserve">
+    <value>批注与白板</value>
+  </data>
+  <data name="SV_ICCCE_AnnotationSettingsDescription" xml:space="preserve">
+    <value>为后续完整接入批注、画布与小白板保留 CWS 原生设置。</value>
+  </data>
+  <data name="SV_ICCCE_MiniWhiteboardEnabled" xml:space="preserve">
+    <value>启用小白板</value>
+  </data>
+  <data name="SV_ICCCE_MiniWhiteboardSyncWithPpt" xml:space="preserve">
+    <value>小白板跟随 PPT 页码同步</value>
+  </data>
+  <data name="SV_ICCCE_CanvasAdvancedSmoothing" xml:space="preserve">
+    <value>启用高级墨迹平滑</value>
+  </data>
+  <data name="SV_ICCCE_GestureFingerSlide" xml:space="preserve">
+    <value>启用手势翻页</value>
+  </data>
+  <data name="AE_PageDescription" xml:space="preserve">
+    <value>这里集中放置从 ICCCE 接入 CWS 的批注、PPT 放映和白板能力。全局设置只保留应用级选项，功能细项都在这里调整。</value>
+  </data>
+  <data name="AE_WhiteboardDescription" xml:space="preserve">
+    <value>小白板已接入基础书写、清空和悬浮显示；后续批注画布、PPT 页同步和墨迹保存继续从这里扩展。</value>
+  </data>
+  <data name="AE_OpenMiniWhiteboard" xml:space="preserve">
+    <value>打开小白板</value>
   </data>
 </root>

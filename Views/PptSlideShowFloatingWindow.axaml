@@ -1,0 +1,239 @@
+<Window
+  x:Class="Gallery.Views.PptSlideShowFloatingWindow"
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:models="using:Gallery.Models"
+  xmlns:vm="using:Gallery.ViewModels"
+  x:DataType="vm:PptSlideShowViewModel"
+  Width="{Binding FloatingWindowWidth}"
+  Height="{Binding FloatingWindowHeight}"
+  Opacity="{Binding FloatingWindowOpacity}"
+  MinWidth="50"
+  MinHeight="50"
+  CanResize="False"
+  ShowInTaskbar="False"
+  WindowDecorations="None"
+  Topmost="True"
+  TransparencyLevelHint="None"
+  WindowStartupLocation="Manual"
+  Background="Transparent">
+
+  <Border
+    x:Name="RootBorder"
+    Background="#f4f4f5"
+    BorderBrush="#a1a1aa"
+    BorderThickness="1"
+    CornerRadius="6"
+    PointerPressed="OnRootPointerPressed">
+    <DockPanel x:Name="LayoutRoot" LastChildFill="True">
+      <ListBox
+        x:Name="PreviewList"
+        Padding="6,8,6,4"
+        Width="{Binding FloatingPreviewWidth}"
+        MaxHeight="{Binding FloatingPreviewMaxHeight}"
+        Background="Transparent"
+        BorderThickness="0"
+        ItemsSource="{Binding PreviewItems}"
+        IsVisible="{Binding IsPreviewExpanded}"
+        SelectionChanged="OnPreviewSelectionChanged">
+        <ListBox.ItemTemplate>
+          <DataTemplate x:DataType="models:PptSlidePreviewItemModel">
+            <Grid Margin="2,4">
+              <Border
+                Padding="6"
+                Background="Transparent"
+                CornerRadius="8">
+                <Grid ColumnDefinitions="28,*">
+                  <TextBlock
+                    Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="12"
+                    FontWeight="SemiBold"
+                    Foreground="#71717a"
+                    Text="{Binding SlideNumber}"/>
+                  <Image
+                    Grid.Column="1"
+                    Source="{Binding Thumbnail}"
+                    Stretch="Uniform"/>
+                </Grid>
+              </Border>
+            </Grid>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+
+      <StackPanel
+        x:Name="ButtonRow"
+        Orientation="Horizontal"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <Border
+          x:Name="RefreshButtonBorder"
+          Width="{Binding FloatingButtonSize}"
+          Height="{Binding FloatingButtonSize}"
+          Background="Transparent"
+          CornerRadius="5"
+          PointerPressed="OnRefreshPointerPressed"
+          PointerReleased="OnRefreshPointerReleased"
+          PointerExited="OnRefreshPointerExited">
+          <Grid>
+            <Border
+              x:Name="RefreshButtonFeedbackBorder"
+              Margin="3"
+              Background="#18181b"
+              CornerRadius="5"
+              Opacity="0"/>
+            <PathIcon
+              Width="{Binding FloatingIconSize}"
+              Height="{Binding FloatingIconSize}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Foreground="#27272a"
+              Data="M23.5 10.5a8.5 8.5 0 0 0-14.8-5.7L6.3 7.2V3H3v10h10V9.7H8.7l2.3-2.3A5.2 5.2 0 1 1 9.5 13H6.1a8.5 8.5 0 1 0 17.4-2.5z"/>
+          </Grid>
+        </Border>
+
+        <Border
+          x:Name="StartEndButtonBorder"
+          Width="{Binding FloatingButtonSize}"
+          Height="{Binding FloatingButtonSize}"
+          Background="Transparent"
+          CornerRadius="5"
+          PointerPressed="OnStartEndPointerPressed"
+          PointerReleased="OnStartEndPointerReleased"
+          PointerExited="OnStartEndPointerExited">
+          <Grid>
+            <Border
+              x:Name="StartEndButtonFeedbackBorder"
+              Margin="3"
+              Background="#18181b"
+              CornerRadius="5"
+              Opacity="0"/>
+            <PathIcon
+              x:Name="StartEndButtonIcon"
+              Width="{Binding FloatingIconSize}"
+              Height="{Binding FloatingIconSize}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Foreground="#27272a"/>
+          </Grid>
+        </Border>
+
+        <Border
+          x:Name="PreviousButtonBorder"
+          Width="{Binding FloatingButtonSize}"
+          Height="{Binding FloatingButtonSize}"
+          Background="Transparent"
+          CornerRadius="5,5,0,0"
+          PointerPressed="OnPreviousPointerPressed"
+          PointerReleased="OnPreviousPointerReleased"
+          PointerExited="OnPreviousPointerExited">
+          <Grid>
+            <Border
+              x:Name="PreviousButtonFeedbackBorder"
+              Margin="3"
+              Background="#18181b"
+              CornerRadius="5"
+              Opacity="0"/>
+            <PathIcon
+              x:Name="PreviousButtonIcon"
+              Width="{Binding FloatingIconSize}"
+              Height="{Binding FloatingIconSize}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Foreground="#27272a"/>
+          </Grid>
+        </Border>
+
+        <Border
+          x:Name="PageButtonBorder"
+          MinWidth="{Binding FloatingButtonSize}"
+          MinHeight="{Binding FloatingButtonSize}"
+          Background="Transparent"
+          PointerPressed="OnPagePointerPressed"
+          PointerReleased="OnPagePointerReleased"
+          PointerExited="OnPagePointerExited">
+          <Grid>
+            <Border
+              x:Name="PageButtonFeedbackBorder"
+              Margin="0,3"
+              Background="#18181b"
+              CornerRadius="5"
+              Opacity="0"/>
+            <StackPanel
+              Margin="12,0"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              IsVisible="{Binding IsPageNumberVisible}"
+              Spacing="0">
+              <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="{Binding FloatingPageFontSize}"
+                FontWeight="Bold"
+                Foreground="#171717"
+                Text="{Binding FloatingCurrentSlideText}"/>
+              <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="{Binding FloatingPageTotalFontSize}"
+                Foreground="#171717"
+                Text="{Binding FloatingTotalSlidesText}"/>
+            </StackPanel>
+          </Grid>
+        </Border>
+
+        <Border
+          x:Name="NextButtonBorder"
+          Width="{Binding FloatingButtonSize}"
+          Height="{Binding FloatingButtonSize}"
+          Background="Transparent"
+          CornerRadius="0,0,5,5"
+          PointerPressed="OnNextPointerPressed"
+          PointerReleased="OnNextPointerReleased"
+          PointerExited="OnNextPointerExited">
+          <Grid>
+            <Border
+              x:Name="NextButtonFeedbackBorder"
+              Margin="3"
+              Background="#18181b"
+              CornerRadius="5"
+              Opacity="0"/>
+            <PathIcon
+              x:Name="NextButtonIcon"
+              Width="{Binding FloatingIconSize}"
+              Height="{Binding FloatingIconSize}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Foreground="#27272a"/>
+          </Grid>
+        </Border>
+
+        <Border
+          x:Name="WhiteboardButtonBorder"
+          Width="{Binding FloatingButtonSize}"
+          Height="{Binding FloatingButtonSize}"
+          Background="Transparent"
+          CornerRadius="5"
+          PointerPressed="OnWhiteboardPointerPressed"
+          PointerReleased="OnWhiteboardPointerReleased"
+          PointerExited="OnWhiteboardPointerExited">
+          <Grid>
+            <Border
+              x:Name="WhiteboardButtonFeedbackBorder"
+              Margin="3"
+              Background="#18181b"
+              CornerRadius="5"
+              Opacity="0"/>
+            <PathIcon
+              Width="{Binding FloatingIconSize}"
+              Height="{Binding FloatingIconSize}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Foreground="#27272a"
+              Data="M6 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7l-5 4v-4H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm2 4v2h12V8H8zm0 4v2h8v-2H8z"/>
+          </Grid>
+        </Border>
+      </StackPanel>
+    </DockPanel>
+  </Border>
+</Window>

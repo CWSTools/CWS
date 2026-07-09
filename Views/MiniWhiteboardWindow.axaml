@@ -1,0 +1,73 @@
+<Window
+  x:Class="Gallery.Views.MiniWhiteboardWindow"
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:fi="clr-namespace:AvaloniaFluentUI.Icons;assembly=AvaloniaFluentUI"
+  xmlns:local="clr-namespace:Gallery.Views"
+  Width="400"
+  Height="300"
+  MinWidth="260"
+  MinHeight="180"
+  CanResize="True"
+  ShowInTaskbar="False"
+  Topmost="True"
+  WindowStartupLocation="CenterOwner"
+  Background="Transparent"
+  TransparencyLevelHint="AcrylicBlur">
+
+  <Border
+    x:Name="RootBorder"
+    Margin="8"
+    Background="#F22A2A2A"
+    BorderBrush="#66FFFFFF"
+    BorderThickness="1"
+    CornerRadius="8">
+    <Grid RowDefinitions="36,*">
+      <Grid
+        Grid.Row="0"
+        ColumnDefinitions="*,Auto,Auto"
+        PointerPressed="OnTitleBarPointerPressed">
+        <TextBlock
+          Margin="12,0,0,0"
+          VerticalAlignment="Center"
+          FontSize="13"
+          FontWeight="SemiBold"
+          Foreground="#FFFFFFFF"
+          Text="Mini Whiteboard"/>
+        <Button
+          Grid.Column="1"
+          Width="34"
+          Height="30"
+          Padding="0"
+          Background="Transparent"
+          BorderThickness="0"
+          Click="OnClearClicked">
+          <PathIcon
+            Width="15"
+            Height="15"
+            Foreground="#FFFFFFFF"
+            Data="{x:Static fi:FluentIcon.Delete}"/>
+        </Button>
+        <Button
+          Grid.Column="2"
+          Width="34"
+          Height="30"
+          Padding="0"
+          Background="Transparent"
+          BorderThickness="0"
+          Click="OnCloseClicked">
+          <PathIcon
+            Width="12"
+            Height="12"
+            Foreground="#FFFFFFFF"
+            Data="M7.05 5.636l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95 1.414-1.414z"/>
+        </Button>
+      </Grid>
+
+      <local:MiniWhiteboardInkCanvas
+        x:Name="InkCanvas"
+        Grid.Row="1"
+        Margin="8,0,8,8"/>
+    </Grid>
+  </Border>
+</Window>

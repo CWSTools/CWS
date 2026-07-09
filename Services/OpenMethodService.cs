@@ -12,7 +12,7 @@ public sealed class OpenMethodService
 {
     private static readonly IReadOnlyList<OpenMethodDefinition> Definitions =
     [
-        new("powerpoint", "OM_PowerPoint", ".ppt / .pptx", "OM_PowerPointDescription"),
+        new("powerpoint", "OM_PowerPoint", ".ppt / .pptx / .pps", "OM_PowerPointDescription"),
         new("word", "OM_Word", ".doc / .docx", "OM_WordDescription"),
         new("excel", "OM_Excel", ".xls / .xlsx", "OM_ExcelDescription"),
         new("pdf", "OM_Pdf", ".pdf", "OM_PdfDescription")
@@ -20,7 +20,7 @@ public sealed class OpenMethodService
 
     private static readonly IReadOnlyDictionary<string, string[]> ExtensionMap = new Dictionary<string, string[]>
     {
-        ["powerpoint"] = [".ppt", ".pptx"],
+        ["powerpoint"] = [".ppt", ".pptx", ".pptm", ".pps", ".ppsx", ".ppsm", ".pot", ".potx", ".potm", ".dps", ".dpt"],
         ["word"] = [".doc", ".docx"],
         ["excel"] = [".xls", ".xlsx"],
         ["pdf"] = [".pdf"]

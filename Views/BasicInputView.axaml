@@ -1,30 +1,293 @@
-﻿<UserControl
+<UserControl
   x:Class="Gallery.Views.BasicInputView"
   xmlns="https://github.com/avaloniaui"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:fi="clr-namespace:AvaloniaFluentUI.Icons;assembly=AvaloniaFluentUI"
   xmlns:fui="clr-namespace:AvaloniaFluentUI.Controls;assembly=AvaloniaFluentUI"
-  xmlns:locale="clr-namespace:AvaloniaFluentUI.Locale;assembly=AvaloniaFluentUI"
-  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:ui="clr-namespace:Gallery.Controls"
-  xmlns:viewModel="clr-namespace:Gallery.ViewModels"
-  d:DesignHeight="450"
-  d:DesignWidth="800"
-  x:DataType="viewModel:BasicInputViewModel"
-  mc:Ignorable="d">
+  xmlns:vm="clr-namespace:Gallery.ViewModels"
+  x:DataType="vm:BasicInputViewModel">
 
-  <fui:SmoothScrollViewer Padding="0,0,15,0">
-    <Grid Margin="18,24,24,0" RowDefinitions="Auto, *">
-      <TextBlock
-        HorizontalAlignment="Left"
-        FontSize="32"
-        Text="{Binding Title}"/>
-      <ui:ButtonItemsPanel
-        Grid.Row="1"
-        Margin="0,24,0,0"
-        Command="{Binding GotoCommand}"
-        ItemsSource="{Binding ButtonItemSource}"/>
+  <UserControl.Styles>
+    <Style Selector="TextBlock.Caption">
+      <Setter Property="FontSize" Value="13"/>
+      <Setter Property="LineHeight" Value="20"/>
+      <Setter Property="Opacity" Value="0.7"/>
+    </Style>
+
+    <Style Selector="TextBlock.SectionTitle">
+      <Setter Property="FontSize" Value="22"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="Border.SurfaceCard">
+      <Setter Property="Padding" Value="20"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="8"/>
+      <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefault}"/>
+    </Style>
+
+    <Style Selector="Border.MetricCard">
+      <Setter Property="Padding" Value="14"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="8"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefault}"/>
+    </Style>
+
+    <Style Selector="Button.ControlButton">
+      <Setter Property="MinWidth" Value="112"/>
+      <Setter Property="Padding" Value="15,9"/>
+    </Style>
+
+    <Style Selector="Border.SettingGroup">
+      <Setter Property="Padding" Value="12"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="8"/>
+      <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefault}"/>
+    </Style>
+
+    <Style Selector="Border.SettingRow">
+      <Setter Property="Padding" Value="8,6"/>
+      <Setter Property="MinHeight" Value="48"/>
+    </Style>
+
+    <Style Selector="TextBlock.SettingTitle">
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="VerticalAlignment" Value="Center"/>
+      <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+  </UserControl.Styles>
+
+  <Grid Margin="32,28,32,28" RowDefinitions="Auto,*" RowSpacing="18">
+    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+      <StackPanel Spacing="8">
+        <TextBlock
+          FontSize="32"
+          FontWeight="SemiBold"
+          Text="{Binding Title}"/>
+        <TextBlock
+          Classes="Caption"
+          MaxWidth="860"
+          FontSize="15"
+          Text="{Binding PageDescription}"
+          TextWrapping="Wrap"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom" Spacing="8">
+        <Button Classes="ControlButton" Command="{Binding OpenPptFloatingWindowCommand}">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <PathIcon Width="16" Height="16" Data="{x:Static fi:FluentIcon.Video}"/>
+            <TextBlock Text="{Binding OpenPptFloating}"/>
+          </StackPanel>
+        </Button>
+        <Button Classes="ControlButton" Command="{Binding OpenMiniWhiteboardWindowCommand}">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <PathIcon Width="16" Height="16" Data="{x:Static fi:FluentIcon.Edit}"/>
+            <TextBlock Text="{Binding OpenMiniWhiteboard}"/>
+          </StackPanel>
+        </Button>
+      </StackPanel>
     </Grid>
-  </fui:SmoothScrollViewer>
+
+    <Grid Grid.Row="1" ColumnDefinitions="*,420" ColumnSpacing="18">
+      <fui:SmoothScrollViewer Padding="0,0,4,0">
+        <StackPanel Spacing="18">
+          <Border Classes="SurfaceCard">
+            <StackPanel Spacing="16">
+              <StackPanel Spacing="6">
+                <TextBlock Classes="SectionTitle" Text="{Binding PptSectionTitle}"/>
+                <TextBlock Classes="Caption" Text="{Binding PptSectionDescription}" TextWrapping="Wrap"/>
+              </StackPanel>
+
+              <WrapPanel ItemSpacing="10" LineSpacing="10">
+                <Button Classes="ControlButton" Command="{Binding LaunchIccceShowCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="{x:Static fi:FluentIcon.Video}"/>
+                    <TextBlock Text="{Binding IccceShowToolbar}"/>
+                  </StackPanel>
+                </Button>
+                <Button Classes="ControlButton" Command="{Binding LaunchIccceBoardCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="{x:Static fi:FluentIcon.Edit}"/>
+                    <TextBlock Text="{Binding IccceBoard}"/>
+                  </StackPanel>
+                </Button>
+                <Button Classes="ControlButton" Command="{Binding LaunchIcccePreviousPageCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="M22 6l-10 10 10 10z"/>
+                    <TextBlock Text="{Binding IcccePreviousPage}"/>
+                  </StackPanel>
+                </Button>
+                <Button Classes="ControlButton" Command="{Binding LaunchIccceNextPageCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="M10 6l10 10-10 10z"/>
+                    <TextBlock Text="{Binding IccceNextPage}"/>
+                  </StackPanel>
+                </Button>
+                <Button Classes="ControlButton" Command="{Binding LaunchIccceClearInkCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="M7 7h18v3H7zm2 5h14l-1 14H10z"/>
+                    <TextBlock Text="{Binding IccceClearInk}"/>
+                  </StackPanel>
+                </Button>
+                <Button Classes="ControlButton" Command="{Binding LaunchIccceUndoCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="M12 8H6v6h3v-2h7a5 5 0 1 1 0 10h-5v3h5a8 8 0 1 0 0-16H9z"/>
+                    <TextBlock Text="{Binding IccceUndo}"/>
+                  </StackPanel>
+                </Button>
+                <Button Classes="ControlButton" Command="{Binding LaunchIccceRedoCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="M20 8h6v6h-3v-2h-7a5 5 0 1 0 0 10h5v3h-5a8 8 0 1 1 0-16h7z"/>
+                    <TextBlock Text="{Binding IccceRedo}"/>
+                  </StackPanel>
+                </Button>
+                <Button Classes="ControlButton" Command="{Binding LaunchIcccePenCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="{x:Static fi:FluentIcon.Edit}"/>
+                    <TextBlock Text="{Binding IcccePen}"/>
+                  </StackPanel>
+                </Button>
+                <Button Classes="ControlButton" Command="{Binding LaunchIccceEraserCommand}">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PathIcon Width="16" Height="16" Data="M5 20 17 8l7 7-9 9H8z"/>
+                    <TextBlock Text="{Binding IccceEraser}"/>
+                  </StackPanel>
+                </Button>
+              </WrapPanel>
+            </StackPanel>
+          </Border>
+
+          <Border Classes="SurfaceCard">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+              <StackPanel Spacing="8">
+                <TextBlock Classes="SectionTitle" Text="{Binding WhiteboardSectionTitle}"/>
+                <TextBlock Classes="Caption" Text="{Binding WhiteboardSectionDescription}" TextWrapping="Wrap"/>
+              </StackPanel>
+              <Button Grid.Column="1" Classes="ControlButton" Command="{Binding OpenMiniWhiteboardWindowCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                  <PathIcon Width="16" Height="16" Data="{x:Static fi:FluentIcon.Edit}"/>
+                  <TextBlock Text="{Binding OpenMiniWhiteboard}"/>
+                </StackPanel>
+              </Button>
+            </Grid>
+          </Border>
+        </StackPanel>
+      </fui:SmoothScrollViewer>
+
+      <Border Grid.Column="1" Classes="SurfaceCard" Padding="0">
+        <Grid RowDefinitions="Auto,*">
+          <StackPanel Margin="20,20,20,12" Spacing="6">
+            <TextBlock Classes="SectionTitle" Text="{Binding PptSectionTitle}"/>
+            <TextBlock Classes="Caption" Text="{Binding PptSectionDescription}" TextWrapping="Wrap"/>
+          </StackPanel>
+
+          <fui:SmoothScrollViewer Grid.Row="1" Padding="12,0,12,32">
+            <StackPanel Spacing="12">
+              <Border Classes="SettingGroup">
+                <StackPanel Spacing="4">
+                  <StackPanel Margin="8,4,8,8" Spacing="4">
+                    <TextBlock FontSize="16" FontWeight="SemiBold" Text="{Binding PptSectionTitle}"/>
+                    <TextBlock Classes="Caption" Text="{Binding PptSectionDescription}" TextWrapping="Wrap"/>
+                  </StackPanel>
+
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptSupportPowerPoint}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptSupportEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptSupportWps}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptSupportWpsEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptAutoFloatingWindow}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptAutoFloatingWindowEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptAutoCloseIccceAfterSlideShow}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptAutoCloseIccceAfterSlideShowEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptKeepTopmost}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptKeepTopmostEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptEnhancedPreview}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptEnhancedPreviewEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptPreloadPreview}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptPreloadPreviewEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptLongPressPageTurn}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptLongPressPageTurnEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding PptOptimisticPageNumber}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsPptOptimisticPageNumberEnabled}"/>
+                    </Grid>
+                  </Border>
+                </StackPanel>
+              </Border>
+
+              <Border Classes="SettingGroup">
+                <StackPanel Spacing="4">
+                  <StackPanel Margin="8,4,8,8" Spacing="4">
+                    <TextBlock FontSize="16" FontWeight="SemiBold" Text="{Binding WhiteboardSectionTitle}"/>
+                    <TextBlock Classes="Caption" Text="{Binding WhiteboardSectionDescription}" TextWrapping="Wrap"/>
+                  </StackPanel>
+
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding MiniWhiteboardEnabled}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsMiniWhiteboardEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding MiniWhiteboardSyncWithPpt}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsMiniWhiteboardSyncWithPptEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding CanvasAdvancedSmoothing}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsCanvasAdvancedSmoothingEnabled}"/>
+                    </Grid>
+                  </Border>
+                  <Border Classes="SettingRow">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14">
+                      <TextBlock Classes="SettingTitle" Text="{Binding GestureFingerSlide}"/>
+                      <ToggleSwitch Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding IsGestureFingerSlideEnabled}"/>
+                    </Grid>
+                  </Border>
+                </StackPanel>
+              </Border>
+
+              <Border Height="24"/>
+            </StackPanel>
+          </fui:SmoothScrollViewer>
+        </Grid>
+      </Border>
+    </Grid>
+  </Grid>
 </UserControl>

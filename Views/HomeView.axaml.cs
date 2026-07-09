@@ -53,6 +53,11 @@ public partial class HomeView : UserControl
         NavigateTo("BasicInput", LocalizationService.Instance.GetString("HV_CommentsTitle"));
     }
 
+    private void OnOpenPptSlideShowClicked(object? sender, RoutedEventArgs e)
+    {
+        NavigateTo("BasicInput", LocalizationService.Instance.GetString("MW_NavCommentsTitle"));
+    }
+
     private void OnOpenBatchToolsClicked(object? sender, RoutedEventArgs e)
     {
         NavigateTo("DialogBoxAndPopup", LocalizationService.Instance.GetString("HV_BatchToolsTitle"));

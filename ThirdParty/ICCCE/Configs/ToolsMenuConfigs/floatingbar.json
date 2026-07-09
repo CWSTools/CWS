@@ -1,0 +1,14 @@
+{
+  "floatingBarItems": [
+    "timer",
+    "randomDraw",
+    "singleDraw",
+    "save",
+    "open",
+    "replay",
+    "screenshot",
+    "manual",
+    "settings"
+  ],
+  "boardItems": []
+}

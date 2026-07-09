@@ -73,6 +73,10 @@ public class App : Application
                 {
                     ShowSettings(desktop);
                 }
+                else if (args.Contains("--ppt", StringComparer.OrdinalIgnoreCase))
+                {
+                    ShowAnnotationEnhancement(desktop);
+                }
                 else if (args.Contains("--show", StringComparer.OrdinalIgnoreCase))
                 {
                     ShowMainWindow(desktop);
@@ -156,6 +160,9 @@ public class App : Application
             case "settings":
                 ShowSettings(desktop);
                 break;
+            case "ppt":
+                ShowAnnotationEnhancement(desktop);
+                break;
             case "show":
                 ShowMainWindow(desktop);
                 break;
@@ -193,6 +200,20 @@ public class App : Application
         {
             viewModel.TogglePageCommand.Execute("Settings");
         }
+    }
+
+    private void ShowAnnotationEnhancement(IClassicDesktopStyleApplicationLifetime desktop)
+    {
+        EnsureMainWindow(desktop).RestoreFromTray();
+
+        Dispatcher.UIThread.Post(() =>
+        {
+            JumpService.InvokeJumpEvent(new JumpModel
+            {
+                Page = "BasicInput",
+                ControlName = LocalizationService.Instance.GetString("MW_NavCommentsTitle")
+            });
+        }, DispatcherPriority.Loaded);
     }
 
     private void OnClicked(object? sender, EventArgs e)

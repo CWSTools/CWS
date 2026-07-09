@@ -41,6 +41,21 @@
             Text="{Binding UpdateStatus}"/>
         </StackPanel>
       </fui:SettingCard>
+
+      <fui:SettingCard
+        Header="{Binding LicenseTitle}"
+        Description="{Binding LicenseDescription}"
+        IconSource="{x:Static fi:FluentIcon.Document}"/>
+
+      <fui:SettingCard
+        Header="{Binding ThirdPartyTitle}"
+        Description="{Binding ThirdPartyDescription}"
+        IconSource="{x:Static fi:FluentIcon.Info}"/>
+
+      <fui:SettingCard
+        Header="{Binding FeedbackTitle}"
+        Description="{Binding FeedbackDescription}"
+        IconSource="{x:Static fi:FluentIcon.Info}"/>
     </StackPanel>
   </fui:SmoothScrollViewer>
 </UserControl>

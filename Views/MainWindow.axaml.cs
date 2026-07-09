@@ -23,6 +23,8 @@ using Gallery.Messages;
 using Gallery.Messages.MainWindowMessages;
 using Gallery.Models;
 using Gallery.Services;
+using Gallery.Services.Iccce;
+using Gallery.Services.Ppt;
 using Gallery.ViewModels;
 
 namespace Gallery.Views;
@@ -51,7 +53,12 @@ public partial class MainWindow : FluentWindow
 {
     private Bitmap? _backgroundImage;
     private readonly DispatcherTimer _backgroundOnlyTimer;
+    private readonly DispatcherTimer _pptProcessMonitorTimer;
+    private readonly IccceBridgeService _iccceBridgeService;
+    private readonly WindowsPptSlideShowService _pptSlideShowService;
     private bool _isApplicationCloseRequested;
+    private bool _wasPresentationProcessRunning;
+    private bool _wasPptSlideShowRunning;
     
     public MainWindow()
     {
@@ -63,6 +70,13 @@ public partial class MainWindow : FluentWindow
             Interval = TimeSpan.FromMinutes(5)
         };
         _backgroundOnlyTimer.Tick += OnBackgroundOnlyTimerTick;
+        _pptProcessMonitorTimer = new DispatcherTimer
+        {
+            Interval = TimeSpan.FromSeconds(2)
+        };
+        _iccceBridgeService = new IccceBridgeService(RuntimeConfigService.Current);
+        _pptSlideShowService = new WindowsPptSlideShowService(RuntimeConfigService.Current);
+        _pptProcessMonitorTimer.Tick += OnPptProcessMonitorTimerTick;
         
         RegisterMessages();
         Loaded += OnLoaded;
@@ -140,6 +154,90 @@ public partial class MainWindow : FluentWindow
         {
             HideToTray();
         }
+    }
+
+    private void OnPptProcessMonitorTimerTick(object? sender, EventArgs e)
+    {
+        if (!OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        var pptSettings = RuntimeConfigService.Current.Iccce.Ppt;
+        if (!RuntimeConfigService.Current.Iccce.IsEnabled ||
+            !pptSettings.PowerPointSupport ||
+            (!pptSettings.AutoShowFloatingWindow && !pptSettings.AutoCloseIccceAfterSlideShow))
+        {
+            _wasPresentationProcessRunning = false;
+            _wasPptSlideShowRunning = false;
+            return;
+        }
+
+        var isRunning = IsPresentationProcessRunning(pptSettings.SupportWps);
+        if (!isRunning)
+        {
+            if ((_wasPresentationProcessRunning || _wasPptSlideShowRunning) && pptSettings.AutoCloseIccceAfterSlideShow)
+            {
+                _iccceBridgeService.CloseIccce();
+            }
+
+            _wasPresentationProcessRunning = false;
+            _wasPptSlideShowRunning = false;
+            return;
+        }
+
+        if (!_wasPresentationProcessRunning && pptSettings.AutoShowFloatingWindow)
+        {
+            _wasPresentationProcessRunning = true;
+            _iccceBridgeService.ShowFloatingBar();
+        }
+
+        var slideShowState = _pptSlideShowService.RefreshState();
+        if (slideShowState.IsInSlideShow)
+        {
+            if (!_wasPptSlideShowRunning)
+            {
+                _wasPptSlideShowRunning = true;
+                if (pptSettings.AutoShowFloatingWindow)
+                {
+                    _iccceBridgeService.ShowFloatingBar();
+                }
+            }
+
+            return;
+        }
+
+        if (_wasPptSlideShowRunning)
+        {
+            _wasPptSlideShowRunning = false;
+            if (pptSettings.AutoCloseIccceAfterSlideShow)
+            {
+                _iccceBridgeService.CloseIccce();
+            }
+        }
+    }
+
+    private static bool IsPresentationProcessRunning(bool includeWps)
+    {
+        string[] processNames = includeWps
+            ? ["POWERPNT", "wpp", "kwpp"]
+            : ["POWERPNT"];
+
+        foreach (var processName in processNames)
+        {
+            try
+            {
+                if (Process.GetProcessesByName(processName).Length > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        return false;
     }
 
     private void OnEnabledBackgroundImage(object recipient, EnabledBackgroundImageMessage message)
@@ -235,7 +333,8 @@ public partial class MainWindow : FluentWindow
                     HideToTrayAfterMinimizeDelay = svm.IsHideToTrayAfterMinimizeDelay,
                     IsBehaviorLoggingEnabled = svm.IsBehaviorLoggingEnabled,
                     IsLaunchAtStartupEnabled = svm.IsLaunchAtStartupEnabled,
-                    OpenMethodPreferences = viewModel.OpenMethodViewModel.ExportPreferences()
+                    OpenMethodPreferences = viewModel.OpenMethodViewModel.ExportPreferences(),
+                    Iccce = RuntimeConfigService.Current.Iccce
                 };
                 if (svm.IsCustomColor)
                 {
@@ -309,6 +408,9 @@ public partial class MainWindow : FluentWindow
         _backgroundOnlyTimer.Tick -= OnBackgroundOnlyTimerTick;
         ReleaseBackgroundImage();
         Loaded -= OnLoaded;
+        _pptProcessMonitorTimer.Stop();
+        _pptProcessMonitorTimer.Tick -= OnPptProcessMonitorTimerTick;
+        _pptSlideShowService.Dispose();
         LocalizationService.Instance.PropertyChanged -= OnLocalizationChanged;
         WeakReferenceMessenger.Default.UnregisterAll(this);
     }
@@ -325,6 +427,8 @@ public partial class MainWindow : FluentWindow
                 EnsureBackgroundImageLoaded();
             }
         }
+
+        _pptProcessMonitorTimer.Start();
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)

@@ -1,0 +1,95 @@
+2026-07-10T00:08:07.9990619+08:00 [T1] [Info] [Ink_Canvas.App.InitializeCrashListeners] 已初始化崩溃监听器
+2026-07-10T00:08:08.6548101+08:00 [T1] [Info] [Ink_Canvas.App+<App_Startup>d__81.MoveNext] Ink Canvas Starting (Version: 1.7.19.4 (3434125))
+2026-07-10T00:08:11.0470097+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.FloatingToolbar.ToolbarRegistry.SaveConfigFile] ToolbarRegistry: 保存配置 [default] 成功
+2026-07-10T00:08:11.0478948+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.FloatingToolbar.ToolbarRegistry.EnsureDefaultConfigExists] ToolbarRegistry: 首次启动，创建 default.json
+2026-07-10T00:08:11.1294567+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.FloatingToolbar.ToolbarRegistry.MigrateEntryConditionIds] ToolbarRegistry: 修正 ConditionId [isPPTMode] -> [isPPTMode]
+2026-07-10T00:08:11.1346949+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.FloatingToolbar.ToolbarRegistry.SaveConfigFile] ToolbarRegistry: 保存配置 [default] 成功
+2026-07-10T00:08:11.1359201+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.FloatingToolbar.ToolbarRegistry.MigrateConditionIdCasing] ToolbarRegistry: 已修正配置 [default] 中 ConditionId 大小写
+2026-07-10T00:08:11.3933659+08:00 [T1] [Warning] [Ink_Canvas.MainWindow.LoadSettings] 配置文件不存在，尝试从备份恢复
+2026-07-10T00:08:11.3948070+08:00 [T1] [Warning] [Ink_Canvas.Helpers.AutoBackupManager.TryRestoreFromBackup] 备份目录不存在，无法从备份恢复
+2026-07-10T00:08:11.6513152+08:00 [T1] [Info] [Ink_Canvas.MainWindow.RebuildToolbar] MW_Toolbar: RebuildToolbar 开始
+2026-07-10T00:08:11.6782159+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.FloatingToolbar.ToolbarRegistry.MigrateEntryConditionIds] ToolbarRegistry: 修正 ConditionId [isPPTMode] -> [isPPTMode]
+2026-07-10T00:08:11.6996652+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.FloatingToolbar.ToolbarRegistry.SaveConfigFile] ToolbarRegistry: 保存配置 [default] 成功
+2026-07-10T00:08:11.7048598+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.FloatingToolbar.ToolbarRegistry.MigrateConditionIdCasing] ToolbarRegistry: 已修正配置 [default] 中 ConditionId 大小写
+2026-07-10T00:08:11.8298201+08:00 [T1] [Info] [Ink_Canvas.MainWindow.RebuildToolbar] MW_Toolbar: RebuildToolbar 完成
+2026-07-10T00:08:12.1107764+08:00 [T1] [Event] [Ink_Canvas.MainWindow.Window_Loaded] Ink Canvas Loaded
+2026-07-10T00:08:12.1274488+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.BoardToolbar.BoardToolbarRegistry.SaveConfigFile] BoardToolbarRegistry: 保存配置 [default] 成功
+2026-07-10T00:08:12.1318827+08:00 [T1] [Info] [Ink_Canvas.Controls.Toolbar.BoardToolbar.BoardToolbarRegistry.EnsureDefaultConfigExists] BoardToolbarRegistry: 首次启动，创建 default.json
+2026-07-10T00:08:12.5564886+08:00 [T1] [Info] [Ink_Canvas.App+<>c__DisplayClass81_0.<App_Startup>b__2] 启动完成心跳已记录
+2026-07-10T00:08:12.5602161+08:00 [T1] [Info] [Ink_Canvas.App+<>c__DisplayClass81_0.<App_Startup>b__2] 启动时长: 4.01秒
+2026-07-10T00:08:13.2763552+08:00 [T1] [Event] [Ink_Canvas.MainWindow.InitializeFloatingWindowInterceptor] 悬浮窗拦截管理器初始化完成
+2026-07-10T00:08:13.3175933+08:00 [T1] [Event] [Ink_Canvas.MainWindow.InitializeGlobalHotkeyManager] 全局快捷键管理器已初始化，启动时默认为鼠标模式并禁用快捷键
+2026-07-10T00:08:13.3394503+08:00 [T1] [Info] [Ink_Canvas.MainWindow+<RunDeferredStartupPhaseBAsync>d__205.MoveNext] 自动修正保存路径为: E:\Project\CWSTools\ThirdParty\ICCCE\Saves
+2026-07-10T00:08:13.3590514+08:00 [T1] [Event] [Ink_Canvas.MainWindow.ClosePowerPointApplication] PowerPoint应用程序已关闭
+2026-07-10T00:08:13.3621853+08:00 [T1] [Event] [Ink_Canvas.MainWindow.StopPowerPointProcessMonitoring] PowerPoint应用程序守护已停止
+2026-07-10T00:08:13.3664660+08:00 [T1] [Event] [Ink_Canvas.MainWindow.ClosePowerPointApplication] PowerPoint应用程序已关闭
+2026-07-10T00:08:13.3806427+08:00 [T1] [Event] [Ink_Canvas.MainWindow.InitializePPTManagers] PPT管理器初始化完成
+2026-07-10T00:08:13.3856523+08:00 [T1] [Trace] [Ink_Canvas.Helpers.PPTManager.StartMonitoring] PPT监控已启动
+2026-07-10T00:08:13.3897741+08:00 [T1] [Event] [Ink_Canvas.MainWindow.StartPPTMonitoring] PPT监控已启动
+2026-07-10T00:08:13.4848838+08:00 [T1] [Event] [Ink_Canvas.MainWindow+<RunDeferredStartupPhaseBAsync>d__205.MoveNext] 窗口概览模型已初始化
+2026-07-10T00:08:13.4926528+08:00 [T1] [Info] [Ink_Canvas.Helpers.IACoreDllExtractor+<ExtractIACoreDllsAsync>d__1.MoveNext] 开始检查并释放IACore相关DLL文件
+2026-07-10T00:08:13.5113587+08:00 [T1] [Info] [Ink_Canvas.Helpers.IACoreDllExtractor+<ExtractIACoreDllsAsync>d__1.MoveNext] 成功释放 IACore.dll 到 E:\Project\CWSTools\ThirdParty\ICCCE\IACore.dll
+2026-07-10T00:08:13.5192244+08:00 [T1] [Info] [Ink_Canvas.Helpers.IACoreDllExtractor+<ExtractIACoreDllsAsync>d__1.MoveNext] 成功释放 IALoader.dll 到 E:\Project\CWSTools\ThirdParty\ICCCE\IALoader.dll
+2026-07-10T00:08:13.5271102+08:00 [T1] [Info] [Ink_Canvas.Helpers.IACoreDllExtractor+<ExtractIACoreDllsAsync>d__1.MoveNext] 成功释放 IAWinFX.dll 到 E:\Project\CWSTools\ThirdParty\ICCCE\IAWinFX.dll
+2026-07-10T00:08:13.5318023+08:00 [T1] [Info] [Ink_Canvas.Helpers.IACoreDllExtractor+<ExtractIACoreDllsAsync>d__1.MoveNext] IACore DLL释放检查完成
+2026-07-10T00:08:13.5370291+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] 开始注册.icstk文件关联
+2026-07-10T00:08:13.5470043+08:00 [T1] [Event] [Ink_Canvas.Helpers.FileAssociationManager.RegisterFileAssociation] 成功注册.icstk文件关联
+2026-07-10T00:08:13.5524852+08:00 [T1] [Event] [Ink_Canvas.Helpers.FileAssociationManager.ShowFileAssociationStatus] .icstk文件关联状态: 已注册
+2026-07-10T00:08:13.5565632+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] 启动IPC监听器
+2026-07-10T00:08:13.5613299+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] 初始化上传帮助类
+2026-07-10T00:08:13.5778844+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] 开始加载插件
+2026-07-10T00:08:13.6138637+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] 插件加载完成，共加载 0 个插件
+2026-07-10T00:08:13.6227257+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.LoadUsageStats] DeviceIdentifier | 主文件无法读取，尝试从备份文件恢复
+2026-07-10T00:08:13.6273560+08:00 [T1] [Warning] [Ink_Canvas.Helpers.DeviceIdentifier.RestoreUsageStatsFromBackup] DeviceIdentifier | 备份文件不存在或损坏，无法恢复
+2026-07-10T00:08:13.6663643+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.GetOrCreateDeviceId] DeviceIdentifier | 生成新设备ID: 6A15C9D902B5E5B8211D4FE5N
+2026-07-10T00:08:13.6791586+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.SaveDeviceIdToFile] DeviceIdentifier | 设备ID已保存到: E:\Project\CWSTools\ThirdParty\ICCCE\device_id.dat
+2026-07-10T00:08:13.7038337+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.SaveUsageStatsToFile] DeviceIdentifier | 加密使用统计已保存到: E:\Project\CWSTools\ThirdParty\ICCCE\usage_stats.enc
+2026-07-10T00:08:13.7100021+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier+UsageStats.CheckAndResetWeeklyStats] DeviceIdentifier | 每周统计重置 - 上周启动: 0次, 上周使用: 0秒
+2026-07-10T00:08:13.7192407+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.CalculateUsageFrequency] DeviceIdentifier | 使用频率计算 - 评分: 50, 频率: Medium, 优先级: Medium, 本周启动: 1次, 本周时长: 0秒
+2026-07-10T00:08:13.7288307+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.SaveUsageStatsToFile] DeviceIdentifier | 加密使用统计已保存到: E:\Project\CWSTools\ThirdParty\ICCCE\usage_stats.enc
+2026-07-10T00:08:13.7378529+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.SaveUsageStatsToFile] DeviceIdentifier | 加密使用统计已保存到: E:\Project\CWSTools\ThirdParty\ICCCE\Saves\usage_stats_backup.enc
+2026-07-10T00:08:13.7435878+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.RecordAppLaunch] DeviceIdentifier | 记录应用启动 - 设备ID: 6A15C9D902B5E5B8211D4FE5N, 总启动: 1次, 本周启动: 1次
+2026-07-10T00:08:13.7485675+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] App | 系统版本: Windows10 10.0.19045
+2026-07-10T00:08:13.7532315+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] App | 设备ID: 6A15C9D902B5E5B8211D4FE5N
+2026-07-10T00:08:13.7593767+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] App | 使用频率: Medium
+2026-07-10T00:08:13.7640969+08:00 [T1] [Info] [Ink_Canvas.App+<RunDeferredStartupTasksAsync>d__82.MoveNext] App | 更新优先级: Medium
+2026-07-10T00:08:13.9232850+08:00 [T1] [Trace] [Ink_Canvas.Windows.SettingsViews.Helpers.WindowSettingsHelper.StartTopmostMaintenance] 启动置顶维护定时器
+2026-07-10T00:08:16.5647020+08:00 [T1] [Trace] [Ink_Canvas.Windows.SettingsViews.Helpers.WindowSettingsHelper.StartTopmostMaintenance] 启动置顶维护定时器
+2026-07-10T00:08:16.5733428+08:00 [T1] [Trace] [Ink_Canvas.MainWindow.LoadInkFadeSettings] 墨迹渐隐设置已加载
+2026-07-10T00:08:16.5771328+08:00 [T1] [Trace] [Ink_Canvas.MainWindow.LoadBrushAutoRestoreSettings] 画笔自动恢复设置已加载
+2026-07-10T00:08:16.5822266+08:00 [T1] [Event] [Ink_Canvas.MainWindow.InitializeInkFadeManager] 墨迹渐隐管理器已初始化
+2026-07-10T00:08:16.5970526+08:00 [T1] [Trace] [Ink_Canvas.MainWindow.AddTouchSupportToSliders] 已为所有滑块控件添加触摸支持
+2026-07-10T00:08:19.0361352+08:00 [T1] [Event] [Ink_Canvas.MainWindow.OnOobeCompleted] OOBE 已完成
+2026-07-10T00:08:19.4549472+08:00 [T1] [Trace] [Ink_Canvas.Helpers.PPTManager.<ConnectToPPT>b__85_0] PPT事件注册成功
+2026-07-10T00:08:19.6795115+08:00 [T22] [Event] [Ink_Canvas.Helpers.PPTManager.ConnectToPPT] 成功连接到PPT应用程序
+2026-07-10T00:08:19.7209512+08:00 [T22] [Event] [Ink_Canvas.Helpers.PPTManager.OnPresentationOpen] 演示文稿已打开: 我们毕业了.pptx
+2026-07-10T00:08:19.9042879+08:00 [T1] [Event] [Ink_Canvas.MainWindow+<>c__DisplayClass966_0.<OnPPTPresentationOpen>b__0] 已打开新演示文稿: 我们毕业了.pptx，墨迹状态已清理
+2026-07-10T00:08:21.4964212+08:00 [T1] [Info] [Ink_Canvas.MainWindow.<RunDeferredStartupPhaseBAsync>b__205_3] AutoUpdate | Running deferred auto-update check at UI idle
+2026-07-10T00:08:21.5218577+08:00 [T25] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.LoadUsageStatsFromEncryptedFile] DeviceIdentifier | 从加密文件成功加载使用统计: E:\Project\CWSTools\ThirdParty\ICCCE\usage_stats.enc
+2026-07-10T00:08:21.5291708+08:00 [T25] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.SaveUsageStatsToFile] DeviceIdentifier | 加密使用统计已保存到: E:\Project\CWSTools\ThirdParty\ICCCE\usage_stats.enc
+2026-07-10T00:08:21.5381360+08:00 [T25] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.SaveUsageStatsToFile] DeviceIdentifier | 加密使用统计已保存到: E:\Project\CWSTools\ThirdParty\ICCCE\Saves\usage_stats_backup.enc
+2026-07-10T00:08:21.5436544+08:00 [T25] [Info] [Ink_Canvas.Helpers.AutoUpdateHelper+<CheckForUpdates>d__43.MoveNext] AutoUpdate | 本地版本: 1.7.19.4
+2026-07-10T00:08:21.5468920+08:00 [T25] [Info] [Ink_Canvas.Helpers.AutoUpdateHelper+<CheckForUpdates>d__43.MoveNext] AutoUpdate | 设备ID: 6A15C9D902B5E5B8211D4FE5N
+2026-07-10T00:08:21.5498434+08:00 [T25] [Info] [Ink_Canvas.Helpers.AutoUpdateHelper+<CheckForUpdates>d__43.MoveNext] AutoUpdate | 更新优先级: Medium
+2026-07-10T00:08:21.5588441+08:00 [T25] [Info] [Ink_Canvas.Helpers.AutoUpdateHelper+<CheckSmartUpdate>d__42.MoveNext] AutoUpdate | 使用智慧更新 API 检查: https://dev-api.dy.ci/api/distribute/check/ICC-CE/?token=492e41ea8eb61fc9a1d336b3852a4478&version=1.7.19.4&os=win10&arch=x64&channel=stable&user_id=6A15C9D902B5E5B8211D4FE5N
+2026-07-10T00:08:22.9514269+08:00 [T17] [Info] [Ink_Canvas.Helpers.AutoUpdateHelper+<CheckSmartUpdate>d__42.MoveNext] AutoUpdate | 智慧更新 API 返回当前已是最新
+2026-07-10T00:08:22.9576650+08:00 [T17] [Info] [Ink_Canvas.MainWindow+<AutoUpdate>d__178.MoveNext] AutoUpdate | Current version is already the latest, no retry needed
+2026-07-10T00:09:42.9301571+08:00 [T1] [Event] [Ink_Canvas.MainWindow+<Window_Closing>d__172.MoveNext] Ink Canvas closing
+2026-07-10T00:09:43.0162796+08:00 [T1] [Trace] [Ink_Canvas.Helpers.PPTManager.StopWpsProcessCheckTimer] 停止 WPS 进程检测
+2026-07-10T00:09:43.1642693+08:00 [T1] [Event] [Ink_Canvas.Helpers.PPTManager.DisconnectFromPPT] 已断开PPT连接，暂时卸载模块以确保COM完全释放
+2026-07-10T00:09:43.1698016+08:00 [T1] [Trace] [Ink_Canvas.Helpers.PPTManager.StopMonitoring] PPT监控已停止
+2026-07-10T00:09:43.1745607+08:00 [T1] [Event] [Ink_Canvas.MainWindow.ClosePowerPointApplication] PowerPoint应用程序已关闭
+2026-07-10T00:09:43.1776574+08:00 [T1] [Event] [Ink_Canvas.MainWindow.StopPowerPointProcessMonitoring] PowerPoint应用程序守护已停止
+2026-07-10T00:09:43.1817599+08:00 [T1] [Event] [Ink_Canvas.MainWindow.DisposePPTManagers] PPT管理器已释放
+2026-07-10T00:09:43.1893461+08:00 [T1] [Event] [Ink_Canvas.FloatingWindowInterceptorManager.Stop] 悬浮窗拦截器已停止
+2026-07-10T00:09:43.1986741+08:00 [T1] [Event] [Ink_Canvas.MainWindow.Window_Closed] Ink Canvas closed
+2026-07-10T00:09:43.2185201+08:00 [T1] [Info] [Ink_Canvas.App.App_Exit] 正在卸载插件...
+2026-07-10T00:09:43.2254128+08:00 [T1] [Info] [Ink_Canvas.App.App_Exit] 插件卸载完成
+2026-07-10T00:09:43.2398905+08:00 [T1] [Error] [Ink_Canvas.App.WriteCrashLog] 用户主动退出，退出代码: 0
+2026-07-10T00:09:43.2465641+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.LoadUsageStatsFromEncryptedFile] DeviceIdentifier | 从加密文件成功加载使用统计: E:\Project\CWSTools\ThirdParty\ICCCE\usage_stats.enc
+2026-07-10T00:09:43.2531883+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.CalculateUsageFrequency] DeviceIdentifier | 使用频率计算 - 评分: 50, 频率: Medium, 优先级: Medium, 本周启动: 1次, 本周时长: 1分29秒
+2026-07-10T00:09:43.2663892+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.SaveUsageStatsToFile] DeviceIdentifier | 加密使用统计已保存到: E:\Project\CWSTools\ThirdParty\ICCCE\usage_stats.enc
+2026-07-10T00:09:43.2938538+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.SaveUsageStatsToFile] DeviceIdentifier | 加密使用统计已保存到: E:\Project\CWSTools\ThirdParty\ICCCE\Saves\usage_stats_backup.enc
+2026-07-10T00:09:43.2986932+08:00 [T1] [Info] [Ink_Canvas.Helpers.DeviceIdentifier.RecordAppExit] DeviceIdentifier | 记录应用退出 - 本次会话: 1分29秒, 总时长: 1分29秒, 本周时长: 1分29秒
+2026-07-10T00:09:43.3073826+08:00 [T1] [Info] [Ink_Canvas.App.App_Exit] App | 应用运行时长: 1.6分钟
+2026-07-10T00:09:43.3709501+08:00 [T2] [Error] [Ink_Canvas.App.WriteCrashLog] 应用程序退出，运行时长: 1分钟 34秒

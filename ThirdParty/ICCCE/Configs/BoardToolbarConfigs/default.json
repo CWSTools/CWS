@@ -1,0 +1,166 @@
+{
+  "areas": [
+    {
+      "id": "left",
+      "groups": [
+        {
+          "id": "navigation",
+          "components": [
+            {
+              "id": "board.previousPage",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.pageInfo",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.nextPage",
+              "position": "Middle",
+              "settings": {}
+            }
+          ],
+          "settings": {}
+        },
+        {
+          "id": "videoBooth",
+          "components": [
+            {
+              "id": "board.videoBooth",
+              "position": "Middle",
+              "settings": {}
+            }
+          ],
+          "settings": {}
+        }
+      ]
+    },
+    {
+      "id": "center",
+      "groups": [
+        {
+          "id": "gesture",
+          "components": [
+            {
+              "id": "board.gesture",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.backgroundColor",
+              "position": "Middle",
+              "settings": {}
+            }
+          ],
+          "settings": {}
+        },
+        {
+          "id": "tools",
+          "components": [
+            {
+              "id": "board.select",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.pen",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.inkFreeze",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.eraser",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.strokeEraser",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.shape",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.insertImage",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.undo",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.redo",
+              "position": "Middle",
+              "settings": {}
+            }
+          ],
+          "settings": {}
+        },
+        {
+          "id": "system",
+          "components": [
+            {
+              "id": "board.tools",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.exit",
+              "position": "Middle",
+              "settings": {}
+            }
+          ],
+          "settings": {}
+        }
+      ]
+    },
+    {
+      "id": "right",
+      "groups": [
+        {
+          "id": "addPage",
+          "components": [
+            {
+              "id": "board.addNewPage",
+              "position": "Middle",
+              "settings": {}
+            }
+          ],
+          "settings": {}
+        },
+        {
+          "id": "navigation",
+          "components": [
+            {
+              "id": "board.previousPage",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.pageInfo",
+              "position": "Middle",
+              "settings": {}
+            },
+            {
+              "id": "board.nextPage",
+              "position": "Middle",
+              "settings": {}
+            }
+          ],
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}

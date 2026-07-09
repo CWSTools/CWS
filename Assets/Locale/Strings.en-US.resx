@@ -1835,6 +1835,84 @@
   <data name="OM_ResultUnsupportedPlatform" xml:space="preserve">
     <value>This operation is not supported on the current platform.</value>
   </data>
+  <data name="PPT_Title" xml:space="preserve">
+    <value>PPT Slide Show</value>
+  </data>
+  <data name="PPT_PageDescription" xml:space="preserve">
+    <value>Connect to a running PowerPoint or WPS Presentation session and control slide show playback with the CWS interface.</value>
+  </data>
+  <data name="PPT_OpenButton" xml:space="preserve">
+    <value>Open PPT</value>
+  </data>
+  <data name="PPT_RefreshButton" xml:space="preserve">
+    <value>Refresh status</value>
+  </data>
+  <data name="PPT_FloatingWindowButton" xml:space="preserve">
+    <value>Open floating controls</value>
+  </data>
+  <data name="PPT_StartButton" xml:space="preserve">
+    <value>Start show</value>
+  </data>
+  <data name="PPT_EndButton" xml:space="preserve">
+    <value>End show</value>
+  </data>
+  <data name="PPT_PreviousButton" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="PPT_NextButton" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="PPT_GotoButton" xml:space="preserve">
+    <value>Go</value>
+  </data>
+  <data name="PPT_TargetSlideLabel" xml:space="preserve">
+    <value>Target slide</value>
+  </data>
+  <data name="PPT_ConnectionStatusTitle" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="PPT_CurrentDeckTitle" xml:space="preserve">
+    <value>Current deck</value>
+  </data>
+  <data name="PPT_SlideCounterTitle" xml:space="preserve">
+    <value>Slide</value>
+  </data>
+  <data name="PPT_Connected" xml:space="preserve">
+    <value>Connected</value>
+  </data>
+  <data name="PPT_Disconnected" xml:space="preserve">
+    <value>Disconnected</value>
+  </data>
+  <data name="PPT_NoPresentation" xml:space="preserve">
+    <value>No presentation</value>
+  </data>
+  <data name="PPT_ResultOpenedWithTarget" xml:space="preserve">
+    <value>Opened the PPT with {0}. CWS will connect shortly.</value>
+  </data>
+  <data name="PPT_ResultOpenedWithSystem" xml:space="preserve">
+    <value>Opened the PPT with the system default app. CWS will connect shortly.</value>
+  </data>
+  <data name="PPT_ResultStartRequested" xml:space="preserve">
+    <value>Requested slide show start.</value>
+  </data>
+  <data name="PPT_ResultEndRequested" xml:space="preserve">
+    <value>Requested slide show end.</value>
+  </data>
+  <data name="PPT_ResultNextRequested" xml:space="preserve">
+    <value>Moved to the next slide.</value>
+  </data>
+  <data name="PPT_ResultPreviousRequested" xml:space="preserve">
+    <value>Moved to the previous slide.</value>
+  </data>
+  <data name="PPT_ResultGotoRequested" xml:space="preserve">
+    <value>Requested slide {0}.</value>
+  </data>
+  <data name="PPT_ResultCommandFailed" xml:space="preserve">
+    <value>Command failed. Make sure PowerPoint/WPS is running and in slide show mode.</value>
+  </data>
+  <data name="PPT_ResultStateFailed" xml:space="preserve">
+    <value>Failed to read PPT state: {0}</value>
+  </data>
   <data name="MW_NavCommentsTitle" xml:space="preserve">
     <value>Comment enhancement</value>
   </data>
@@ -1915,5 +1993,74 @@
   </data>
   <data name="AV_UpdateCurrentVersion" xml:space="preserve">
     <value>Current version: {0}</value>
+  </data>
+  <data name="SV_ICCCE_Settings" xml:space="preserve">
+    <value>ICCCE features</value>
+  </data>
+  <data name="SV_ICCCE_SettingsDescription" xml:space="preserve">
+    <value>Enable the annotation, slideshow, and whiteboard capabilities ported from ICCCE into CWS.</value>
+  </data>
+  <data name="SV_ICCCE_FeatureEnabled" xml:space="preserve">
+    <value>Enable ICCCE feature layer</value>
+  </data>
+  <data name="SV_ICCCE_PptSettings" xml:space="preserve">
+    <value>PPT slideshow</value>
+  </data>
+  <data name="SV_ICCCE_PptSettingsDescription" xml:space="preserve">
+    <value>Control PowerPoint/WPS connection, floating window, preview, and page switching response.</value>
+  </data>
+  <data name="SV_ICCCE_PptSupportPowerPoint" xml:space="preserve">
+    <value>Enable PowerPoint slideshow control</value>
+  </data>
+  <data name="SV_ICCCE_PptSupportWps" xml:space="preserve">
+    <value>Enable WPS Presentation support</value>
+  </data>
+  <data name="SV_ICCCE_PptAutoFloatingWindow" xml:space="preserve">
+    <value>Show the floating window when a PPT process is detected</value>
+  </data>
+  <data name="SV_ICCCE_PptKeepTopmost" xml:space="preserve">
+    <value>Keep the floating window above slideshow windows</value>
+  </data>
+  <data name="SV_ICCCE_PptEnhancedPreview" xml:space="preserve">
+    <value>Enable thumbnail preview from the page button</value>
+  </data>
+  <data name="SV_ICCCE_PptPreloadPreview" xml:space="preserve">
+    <value>Preload thumbnails after connecting</value>
+  </data>
+  <data name="SV_ICCCE_PptLongPressPageTurn" xml:space="preserve">
+    <value>Hold previous/next to turn pages continuously</value>
+  </data>
+  <data name="SV_ICCCE_PptOptimisticPageNumber" xml:space="preserve">
+    <value>Update the displayed page number before PowerPoint catches up</value>
+  </data>
+  <data name="SV_ICCCE_PptOptimisticPageHold" xml:space="preserve">
+    <value>Page number pre-update hold time (ms)</value>
+  </data>
+  <data name="SV_ICCCE_AnnotationSettings" xml:space="preserve">
+    <value>Annotation and whiteboard</value>
+  </data>
+  <data name="SV_ICCCE_AnnotationSettingsDescription" xml:space="preserve">
+    <value>CWS-native settings reserved for the full annotation, canvas, and mini whiteboard integration.</value>
+  </data>
+  <data name="SV_ICCCE_MiniWhiteboardEnabled" xml:space="preserve">
+    <value>Enable mini whiteboard</value>
+  </data>
+  <data name="SV_ICCCE_MiniWhiteboardSyncWithPpt" xml:space="preserve">
+    <value>Sync mini whiteboard with PPT pages</value>
+  </data>
+  <data name="SV_ICCCE_CanvasAdvancedSmoothing" xml:space="preserve">
+    <value>Enable advanced ink smoothing</value>
+  </data>
+  <data name="SV_ICCCE_GestureFingerSlide" xml:space="preserve">
+    <value>Enable gesture page switching</value>
+  </data>
+  <data name="AE_PageDescription" xml:space="preserve">
+    <value>ICCCE annotation, PPT slideshow, and whiteboard features adapted for CWS live here. Global settings stay application-level; feature controls are adjusted on this page.</value>
+  </data>
+  <data name="AE_WhiteboardDescription" xml:space="preserve">
+    <value>The mini whiteboard now supports basic ink, clearing, and floating display. PPT page sync, ink saving, and the full annotation canvas will continue from here.</value>
+  </data>
+  <data name="AE_OpenMiniWhiteboard" xml:space="preserve">
+    <value>Open mini whiteboard</value>
   </data>
 </root>

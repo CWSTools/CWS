@@ -1,0 +1,101 @@
+﻿{
+  "Version": "1.0",
+  "LastModified": "2026-07-10T00:08:13.2812627+08:00",
+  "Hotkeys": [
+    {
+      "Name": "Undo",
+      "Key": 69,
+      "Modifiers": 2
+    },
+    {
+      "Name": "Redo",
+      "Key": 68,
+      "Modifiers": 2
+    },
+    {
+      "Name": "Clear",
+      "Key": 48,
+      "Modifiers": 2
+    },
+    {
+      "Name": "Paste",
+      "Key": 65,
+      "Modifiers": 2
+    },
+    {
+      "Name": "SelectTool",
+      "Key": 62,
+      "Modifiers": 1
+    },
+    {
+      "Name": "DrawTool",
+      "Key": 47,
+      "Modifiers": 1
+    },
+    {
+      "Name": "EraserTool",
+      "Key": 48,
+      "Modifiers": 1
+    },
+    {
+      "Name": "BlackboardTool",
+      "Key": 45,
+      "Modifiers": 1
+    },
+    {
+      "Name": "QuitDrawTool",
+      "Key": 60,
+      "Modifiers": 1
+    },
+    {
+      "Name": "Pen1",
+      "Key": 35,
+      "Modifiers": 1
+    },
+    {
+      "Name": "Pen2",
+      "Key": 36,
+      "Modifiers": 1
+    },
+    {
+      "Name": "Pen3",
+      "Key": 37,
+      "Modifiers": 1
+    },
+    {
+      "Name": "Pen4",
+      "Key": 38,
+      "Modifiers": 1
+    },
+    {
+      "Name": "Pen5",
+      "Key": 39,
+      "Modifiers": 1
+    },
+    {
+      "Name": "DrawLine",
+      "Key": 55,
+      "Modifiers": 1
+    },
+    {
+      "Name": "Screenshot",
+      "Key": 46,
+      "Modifiers": 1
+    },
+    {
+      "Name": "QuickDraw",
+      "Key": 54,
+      "Modifiers": 1
+    },
+    {
+      "Name": "Hide",
+      "Key": 65,
+      "Modifiers": 1
+    },
+    {
+      "Name": "Exit",
+      "Key": 13,
+      "Modifiers": 0
+    }
+  ]
+}

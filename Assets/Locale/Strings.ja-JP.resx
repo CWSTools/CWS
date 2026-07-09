@@ -1835,6 +1835,84 @@
   <data name="OM_ResultUnsupportedPlatform" xml:space="preserve">
     <value>この操作は現在のプラットフォームでは利用できません。</value>
   </data>
+  <data name="PPT_Title" xml:space="preserve">
+    <value>PPT スライドショー</value>
+  </data>
+  <data name="PPT_PageDescription" xml:space="preserve">
+    <value>実行中の PowerPoint または WPS Presentation に接続し、CWS の画面からスライドショーを操作します。</value>
+  </data>
+  <data name="PPT_OpenButton" xml:space="preserve">
+    <value>PPT を開く</value>
+  </data>
+  <data name="PPT_RefreshButton" xml:space="preserve">
+    <value>状態を更新</value>
+  </data>
+  <data name="PPT_FloatingWindowButton" xml:space="preserve">
+    <value>フローティング操作を開く</value>
+  </data>
+  <data name="PPT_StartButton" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="PPT_EndButton" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="PPT_PreviousButton" xml:space="preserve">
+    <value>前へ</value>
+  </data>
+  <data name="PPT_NextButton" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="PPT_GotoButton" xml:space="preserve">
+    <value>移動</value>
+  </data>
+  <data name="PPT_TargetSlideLabel" xml:space="preserve">
+    <value>移動先スライド</value>
+  </data>
+  <data name="PPT_ConnectionStatusTitle" xml:space="preserve">
+    <value>接続状態</value>
+  </data>
+  <data name="PPT_CurrentDeckTitle" xml:space="preserve">
+    <value>現在の資料</value>
+  </data>
+  <data name="PPT_SlideCounterTitle" xml:space="preserve">
+    <value>スライド</value>
+  </data>
+  <data name="PPT_Connected" xml:space="preserve">
+    <value>接続済み</value>
+  </data>
+  <data name="PPT_Disconnected" xml:space="preserve">
+    <value>未接続</value>
+  </data>
+  <data name="PPT_NoPresentation" xml:space="preserve">
+    <value>資料なし</value>
+  </data>
+  <data name="PPT_ResultOpenedWithTarget" xml:space="preserve">
+    <value>{0} で PPT を開きました。まもなく CWS が接続します。</value>
+  </data>
+  <data name="PPT_ResultOpenedWithSystem" xml:space="preserve">
+    <value>システム既定のアプリで PPT を開きました。まもなく CWS が接続します。</value>
+  </data>
+  <data name="PPT_ResultStartRequested" xml:space="preserve">
+    <value>スライドショー開始を要求しました。</value>
+  </data>
+  <data name="PPT_ResultEndRequested" xml:space="preserve">
+    <value>スライドショー終了を要求しました。</value>
+  </data>
+  <data name="PPT_ResultNextRequested" xml:space="preserve">
+    <value>次のスライドへ移動しました。</value>
+  </data>
+  <data name="PPT_ResultPreviousRequested" xml:space="preserve">
+    <value>前のスライドへ移動しました。</value>
+  </data>
+  <data name="PPT_ResultGotoRequested" xml:space="preserve">
+    <value>{0} 枚目への移動を要求しました。</value>
+  </data>
+  <data name="PPT_ResultCommandFailed" xml:space="preserve">
+    <value>コマンドに失敗しました。PowerPoint/WPS が実行中で、スライドショー中か確認してください。</value>
+  </data>
+  <data name="PPT_ResultStateFailed" xml:space="preserve">
+    <value>PPT の状態を読み取れませんでした: {0}</value>
+  </data>
   <data name="MW_NavCommentsTitle" xml:space="preserve">
     <value>コメント強化</value>
   </data>
@@ -1915,5 +1993,74 @@
   </data>
   <data name="AV_UpdateCurrentVersion" xml:space="preserve">
     <value>現在のバージョン: {0}</value>
+  </data>
+  <data name="SV_ICCCE_Settings" xml:space="preserve">
+    <value>ICCCE 機能</value>
+  </data>
+  <data name="SV_ICCCE_SettingsDescription" xml:space="preserve">
+    <value>ICCCE から CWS に移植した注釈、スライドショー、ホワイトボード機能を有効にします。</value>
+  </data>
+  <data name="SV_ICCCE_FeatureEnabled" xml:space="preserve">
+    <value>ICCCE 機能レイヤーを有効にする</value>
+  </data>
+  <data name="SV_ICCCE_PptSettings" xml:space="preserve">
+    <value>PPT スライドショー</value>
+  </data>
+  <data name="SV_ICCCE_PptSettingsDescription" xml:space="preserve">
+    <value>PowerPoint/WPS 接続、フローティングウィンドウ、プレビュー、ページ切替を制御します。</value>
+  </data>
+  <data name="SV_ICCCE_PptSupportPowerPoint" xml:space="preserve">
+    <value>PowerPoint スライドショー制御を有効にする</value>
+  </data>
+  <data name="SV_ICCCE_PptSupportWps" xml:space="preserve">
+    <value>WPS Presentation サポートを有効にする</value>
+  </data>
+  <data name="SV_ICCCE_PptAutoFloatingWindow" xml:space="preserve">
+    <value>PPT プロセス検出時にフローティングウィンドウを表示</value>
+  </data>
+  <data name="SV_ICCCE_PptKeepTopmost" xml:space="preserve">
+    <value>スライドショー中にフローティングウィンドウを最前面に保つ</value>
+  </data>
+  <data name="SV_ICCCE_PptEnhancedPreview" xml:space="preserve">
+    <value>ページボタンのサムネイルプレビューを有効にする</value>
+  </data>
+  <data name="SV_ICCCE_PptPreloadPreview" xml:space="preserve">
+    <value>接続後にサムネイルを事前読み込み</value>
+  </data>
+  <data name="SV_ICCCE_PptLongPressPageTurn" xml:space="preserve">
+    <value>前/次ボタン長押しで連続ページ送り</value>
+  </data>
+  <data name="SV_ICCCE_PptOptimisticPageNumber" xml:space="preserve">
+    <value>PowerPoint の反映前にページ番号を更新</value>
+  </data>
+  <data name="SV_ICCCE_PptOptimisticPageHold" xml:space="preserve">
+    <value>ページ番号先行更新の保持時間（ms）</value>
+  </data>
+  <data name="SV_ICCCE_AnnotationSettings" xml:space="preserve">
+    <value>注釈とホワイトボード</value>
+  </data>
+  <data name="SV_ICCCE_AnnotationSettingsDescription" xml:space="preserve">
+    <value>注釈、キャンバス、ミニホワイトボード統合用の CWS ネイティブ設定です。</value>
+  </data>
+  <data name="SV_ICCCE_MiniWhiteboardEnabled" xml:space="preserve">
+    <value>ミニホワイトボードを有効にする</value>
+  </data>
+  <data name="SV_ICCCE_MiniWhiteboardSyncWithPpt" xml:space="preserve">
+    <value>ミニホワイトボードを PPT ページと同期</value>
+  </data>
+  <data name="SV_ICCCE_CanvasAdvancedSmoothing" xml:space="preserve">
+    <value>高度なインク平滑化を有効にする</value>
+  </data>
+  <data name="SV_ICCCE_GestureFingerSlide" xml:space="preserve">
+    <value>ジェスチャーによるページ切替を有効にする</value>
+  </data>
+  <data name="AE_PageDescription" xml:space="preserve">
+    <value>ICCCE から CWS に移植した注釈、PPT スライドショー、ホワイトボード機能をここに集約します。グローバル設定はアプリ全体の項目だけにします。</value>
+  </data>
+  <data name="AE_WhiteboardDescription" xml:space="preserve">
+    <value>ミニホワイトボードは基本の書き込み、クリア、フローティング表示に対応しました。PPT ページ同期、インク保存、完全な注釈キャンバスはここから拡張します。</value>
+  </data>
+  <data name="AE_OpenMiniWhiteboard" xml:space="preserve">
+    <value>ミニホワイトボードを開く</value>
   </data>
 </root>

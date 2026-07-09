@@ -20,6 +20,7 @@
     <AvaloniaResource Include="Assets\**" Exclude="Assets\Fonts\**" />
     <Content Include="Assets\Locale\*.resx" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="Assets\Icons\**\*.ico" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="ThirdParty\ICCCE\**\*.*" Link="ICCCE\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Tools\**" />
